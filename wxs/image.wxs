@@ -1,0 +1,52 @@
+function ali(url, w, dpr) {
+  w = w || 375;
+  dpr = dpr || 2;
+
+  if (!url || getRegExp("^\s+$").test(url)) {
+    return "";
+  }
+
+  if (getRegExp("https?:\/\/oss.xzintl.com").test(url)) {
+    return url;
+  }
+
+  // 如果图片链接中已经包含了过滤参数，则直接跳过
+  if (getRegExp("x-oss-process=").test(url)) {
+    return url;
+  }
+
+  if (url.indexOf("?") > -1) {
+    url += "&";
+  } else {
+    url += "?";
+  }
+
+  //gif
+  if (getRegExp("\.gif", "i").test(url)) {
+    url += "x-oss-process=image/resize,w_" + parseInt(w * dpr);
+  } else if (getRegExp("\.png", "i").test(url)) {
+    url +=
+      "x-oss-process=image/format,png/interlace,1,image/resize,w_" +
+      parseInt(w * dpr);
+  } else {
+    url +=
+      "x-oss-process=image/format,jpg/interlace,1,image/resize,w_" +
+      parseInt(w * dpr);
+  }
+  // 新增sharpen锐化参数，减少图片缩放后的模糊效果
+  url += "/quality,Q_60/sharpen,90";
+
+  return url;
+};
+
+function getImgUrl(url, w, ossDomain, dpr) {
+  if (url.substring(0, 8) === 'https://' || url.substring(0, 7) === 'http://') {
+    return ali(url, w, dpr);
+  } else {
+    return ali(ossDomain + url, w, dpr);
+  }
+}
+module.exports = {
+  ali: ali,
+  getImgUrl: getImgUrl,
+}

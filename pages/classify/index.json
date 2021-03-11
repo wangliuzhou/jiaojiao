@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "商品分类",
+  "component": true,
+  "usingComponents": {
+    "IconFont": "/components/iconfont/index",
+    "EmptyTip": "./components/emptyTip/index"
+  },
+  "enablePullDownRefresh": true
+}

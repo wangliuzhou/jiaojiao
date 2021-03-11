@@ -1,0 +1,26 @@
+.empty-tip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 48px);
+  box-sizing: border-box;
+}
+.empty-tip image {
+  display: block;
+  margin: 0 auto;
+  width: 194rpx;
+}
+.empty-tip .empty-tip-text {
+  text-align: center;
+  color: #666666;
+  font-size: 30rpx;
+  margin-top: 44rpx;
+}

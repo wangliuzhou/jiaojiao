@@ -1,0 +1,6 @@
+@import "./assets/font/iconfont.wxss";
+
+.iphone-bottom {
+  /*iphoneX底部安全距离*/
+  padding-bottom: env(safe-area-inset-bottom);
+}

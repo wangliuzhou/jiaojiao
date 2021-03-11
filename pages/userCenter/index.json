@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "customNavigation": "/components/customNavigation/index",
+    "IconFont": "/components/iconfont/index",
+    "AuthAll": "/components/authAll/index"
+  },
+  "navigationStyle": "custom",
+  "backgroundColor": "#383d40",
+  "enablePullDownRefresh": true
+}

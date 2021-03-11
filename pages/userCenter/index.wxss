@@ -1,0 +1,348 @@
+page {
+  background: #f8f8f8;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 48px);
+}
+.user-content-page {
+  min-height: calc(100vh - env(safe-area-inset-bottom) - 48px);
+}
+.user-content-page .user-info-card {
+  position: relative;
+  width: 100%;
+  height: 374rpx;
+  background: #373d41;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.user-content-page .user-info-card .get-user-info-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+  opacity: 0;
+}
+.user-content-page .user-info-card .user-info {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.user-content-page .user-info-card .user-info .user-avatar-box {
+  width: 120rpx;
+  height: 120rpx;
+  background: #ffffff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-content-page .user-info-card .user-info .user-avatar-box .user-avatar {
+  width: 100%;
+  height: 100%;
+}
+.user-content-page .user-info-card .user-info .user-detail {
+  margin-left: 24rpx;
+  flex-grow: 1;
+  width: 0;
+}
+.user-content-page .user-info-card .user-info .user-detail .user-name {
+  display: flex;
+  align-items: center;
+}
+.user-content-page .user-info-card .user-info .user-detail .user-name .name {
+  margin-right: 20rpx;
+  height: 50rpx;
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 50rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+}
+.user-content-page .user-info-card .user-info.left-name-right-avatar .user-avatar-box {
+  order: 1;
+}
+.user-content-page .user-info-card .user-info.vertical-center {
+  flex-direction: column;
+  justify-content: center;
+}
+.user-content-page .user-info-card .user-info.vertical-center .user-detail {
+  width: 100%;
+  flex-grow: 0;
+  margin-top: 20rpx;
+}
+.user-content-page .user-info-card .user-info.vertical-center .user-detail .user-name {
+  justify-content: center;
+}
+.user-content-page .user-info-card .member-card {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  align-items: center;
+  width: 690rpx;
+  height: 84rpx;
+  border-radius: 16rpx 16rpx 0 0;
+  transform: translate(-50%, 0);
+  box-sizing: border-box;
+  padding: 12rpx 28rpx;
+  z-index: 1;
+  background: linear-gradient(to right, #f5b482, #f0833b);
+}
+.user-content-page .user-info-card .member-card .icon {
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #ffffff;
+}
+.user-content-page .user-info-card .member-card .join-member {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-content-page .user-info-card .member-card .join-member .text {
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  color: #ffffff;
+  margin: 0 10rpx;
+}
+.user-content-page .user-info-card .member-background-img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 690rpx;
+  height: 84rpx;
+  transform: translate(-50%, 0);
+  z-index: 0;
+}
+.user-content-page .user-info-card .footer-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30rpx;
+  width: 100%;
+  z-index: 1;
+}
+.user-content-page .balance-card {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 138rpx;
+}
+.user-content-page .balance-card .item {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.user-content-page .balance-card .item .label {
+  height: 37rpx;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #909399;
+  line-height: 37rpx;
+}
+.user-content-page .balance-card .item .value {
+  height: 48rpx;
+  font-size: 42rpx;
+  font-family: DINAlternate-Bold, DINAlternate;
+  font-weight: bold;
+  color: #303133;
+  line-height: 48rpx;
+}
+.user-content-page .order-card {
+  position: relative;
+  width: 726rpx;
+  height: 280rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  margin: 20rpx auto 0;
+  box-sizing: border-box;
+  padding: 0 12rpx;
+}
+.user-content-page .order-card .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90rpx;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.user-content-page .order-card .header .left-label {
+  height: 42rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 42rpx;
+}
+.user-content-page .order-card .header .right-go-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 37rpx;
+  line-height: 37rpx;
+}
+.user-content-page .order-card .header .right-go-all .text {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  margin-right: 10rpx;
+}
+.user-content-page .order-card .order-types {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 190rpx;
+}
+.user-content-page .order-card .order-types .item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 20%;
+  height: 100%;
+}
+.user-content-page .order-card .order-types .item .order-num {
+  position: absolute;
+  right: 32rpx;
+  top: 27rpx;
+  min-width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  background: #ff6a00;
+  border-radius: 28rpx;
+  text-align: center;
+  font-size: 20rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #ffffff;
+}
+.user-content-page .order-card .order-types .item .label {
+  margin-top: 33rpx;
+  height: 37rpx;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  line-height: 37rpx;
+  color: #666666;
+}
+.user-content-page .order-card .order-types .item .icon {
+  width: 56rpx;
+  height: 56rpx;
+}
+.user-content-page .function-card {
+  width: 726rpx;
+  margin: 20rpx auto 0;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 0 12rpx;
+}
+.user-content-page .function-card .item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 25%;
+  height: 190rpx;
+  background: #ffffff;
+}
+.user-content-page .function-card .item .label {
+  margin-top: 33rpx;
+  height: 37rpx;
+  line-height: 37rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+}
+.user-content-page .function-card .item .icon {
+  width: 80rpx;
+  height: 80rpx;
+}
+.user-content-page .function-card .item .contact-btn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+}
+.user-content-page .function-card.function-card-list-style {
+  border-radius: 0;
+  margin: 20rpx 0 0;
+  width: 100%;
+  padding: 0 0 0 24rpx;
+  background: #ffffff;
+}
+.user-content-page .function-card.function-card-list-style .item {
+  width: 100%;
+  height: 96rpx;
+  justify-content: start;
+  flex-direction: row;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.user-content-page .function-card.function-card-list-style .item .icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+.user-content-page .function-card.function-card-list-style .item .label {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 27rpx;
+  font-size: 30rpx;
+}
+.user-content-page .function-card.function-card-list-style .item .label .value-and-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-content-page .function-card.function-card-list-style .item .label .value-and-icon .value {
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  margin-right: 16rpx;
+}
+.user-content-page .function-card.function-card-list-style .item .icon {
+  font-size: 40rpx;
+}
+.user-content-page .function-card.function-card-list-style .item:last-child {
+  border: none;
+}
+.user-content-page .function-card.function-card-list-style .item.block {
+  margin-bottom: 16rpx;
+  border: none;
+  position: relative;
+}
+.user-content-page .function-card.function-card-list-style .item.block::after {
+  content: "";
+  height: 16rpx;
+  width: 750rpx;
+  position: absolute;
+  bottom: -16rpx;
+  left: -24rpx;
+  background: #f8f8f8;
+}

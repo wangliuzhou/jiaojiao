@@ -1,0 +1,1 @@
+export const WXAPP_ENV = "trial";

@@ -1,0 +1,4 @@
+<wxs src="../../wxs/image.wxs" module="image" />
+<view class="classify-content" wx:if="{{ !noData }}">page2</view>
+
+<EmptyTip wx:if="{{ noData }}" />

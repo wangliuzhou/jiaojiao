@@ -1,0 +1,45 @@
+/* components/navigation/navigation.wxss */
+// 这里用px  因为右上角胶囊的大小是固定不变的
+.navigation-wrapper {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 45px;
+  overflow: hidden;
+  z-index: 999;
+
+  .icon-group {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    overflow: hidden;
+
+    .icon-item {
+      width: 50%;
+    }
+  }
+
+  .title-wrapper {
+    width: calc(100% - 130px);
+    line-height: 45px;
+    height: 45px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 32rpx;
+
+    color: #FFFFFF;
+    text-align: center;
+  }
+}
+
+.empty {
+  height: 45px;
+  width: 100%;
+}
