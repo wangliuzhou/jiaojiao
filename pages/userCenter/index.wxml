@@ -1,58 +1,31 @@
 <wxs src="../../wxs/image.wxs" module="image" />
 <view class="user-content-page">
   <customNavigation title="个人中心" scrollTop="{{scrollTop}}"></customNavigation>
-  <view
-    class="user-info-card"
-    style="height: {{statusBarHeight* ratio + 374}}rpx;padding-top:{{tabbarBarHeight* ratio + 30}}rpx"
-  >
+  <view class="user-info-card" style="height: 444rpx;padding-top:111rpx">
     <view class="user-info">
       <view class="user-avatar-box">
-        <image
-          wx:if="{{$state.userInfo.userAvatar}}"
-          mode="aspectFill"
-          src="{{image.ali(ossDomain + $state.userInfo.userAvatar, 120, dpr)}}"
-          class="user-avatar"
-        />
+        <image class src="{{$state.userInfo.userAvatar}}" mode="widthFix" />
         <open-data
           wx:if="{{!$state.userInfo.userAvatar}}"
           type="userAvatarUrl"
           style="width:100%;height:100%;display:block"
         ></open-data>
       </view>
-      <view class="user-detail">
-        <view class="user-name">
-          <text class="name">{{!!$state.userInfo ? $state.userInfo.userNickname : '立即登录'}}</text>
-          <IconFont type="iconhuiyuanma" fontStyle="font-size:30rpx;color:#ffffff;" />
-        </view>
-      </view>
       <AuthAll type="userInfo"></AuthAll>
     </view>
     <AuthAll type="phone"></AuthAll>
-    <view class="member-card" bind:tap="goMember">
-      <view class="icon">{{ storeSysName }}</view>
-      <view class="join-member">
-        <IconFont type="iconhuiyuanxingbiao" fontStyle="font-size:28rpx;color:#ffffff" />
-        <text class="text">{{isMmember === 2 ?'会员中心':'成为会员'}}</text>
-        <IconFont type="iconright" fontStyle="font-size:20rpx;color:#ffffff" />
-      </view>
-    </view>
   </view>
   <view class="order-card">
     <view class="header">
       <view class="left-label">我的订单</view>
       <view class="right-go-all">
-        <text class="text" bind:tap="goPage" data-link="/pages/orderList/index">查看全部订单</text>
+        <text class="text">查看全部订单</text>
         <IconFont type="iconright" fontStyle="font-size:22rpx;color:#999999" />
       </view>
     </view>
     <view class="order-types">
       <block wx:for="{{orderList}}" wx:key="label">
-        <view
-          class="item"
-          bind:tap="goPage"
-          data-link="{{item.link}}"
-          data-active-index="{{item.activeIndex}}"
-        >
+        <view class="item">
           <view
             wx:if="{{item.num}}"
             class="order-num"

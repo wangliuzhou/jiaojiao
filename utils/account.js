@@ -2,12 +2,9 @@ import { post } from "../utils/request";
 
 //自动登录
 export const autoLogin = () => {
-  const app = getApp();
   return wx.login().then(({ code }) => {
     return post("/sysWechatThirdAuth/miniProgramLogin", {
-      authAppID: app.globalData.ext.appid,
-      jsCode: code,
-      flag: 1
+      jsCode: code
     }).then(({ data }) => {
       if (data.account) {
         // 登录成功
