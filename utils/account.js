@@ -7,17 +7,20 @@ export const getOpenId = async () => {
     // 要调用的云函数名称
     name: "getOpenId"
   });
-  app.globalData.openid = result.openid;
+  return result;
 };
 
 // 查询数据库是否有记录
 export const checkResult = async () => {
   const { data = [] } = await db
     .collection("users")
-    .where({ _openid: app.globalData.openid })
+    .where({ _openid: "{openid}" })
     .get();
+  console.log("checkResult", data);
+
   if (data.length) {
     // 已授权登录过，数据库有记录
+    app.globalData.userInfo = data[0];
     wx.switchTab({
       url: "/pages/home/index"
     });
@@ -30,6 +33,6 @@ export const checkResult = async () => {
 
 //自动登录
 export const autoLogin = async () => {
-  await getOpenId();
   await checkResult();
+  // await getOpenId();
 };

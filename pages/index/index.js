@@ -1,12 +1,14 @@
 const computedBehavior = require("miniprogram-computed");
 const loginBehavior = require("../../behaviors/login");
+import { getOpenId } from "../../utils/account";
+
 const db = wx.cloud.database();
 let app = getApp();
 
 Component({
   behaviors: [computedBehavior, loginBehavior],
   data: {
-    value: "",
+    value: "", // 职业0学生   1老师
     radios: [
       { value: 0, name: "学生" },
       { value: 1, name: "老师" }
@@ -17,21 +19,24 @@ Component({
   methods: {
     onLoad() {},
 
-    onGetUserInfo(e) {
+    async onGetUserInfo(e) {
       console.log(e);
       if (e.detail.errMsg === "getUserInfo:ok") {
         const userInfo = e.detail.userInfo;
         // 同意授权
+        const { openid } = await getOpenId();
+        userInfo.openid = openid;
+        userInfo.occupation = this.data.value;
         app.globalData.userInfo = userInfo;
+
         db.collection("users")
           .add({
             data: {
-              _id: this.openId,
+              _id: openid,
               ...userInfo
             }
           })
-          .then(res => {
-            console.log(res);
+          .then(() => {
             wx.switchTab({
               url: "/pages/home/index"
             });

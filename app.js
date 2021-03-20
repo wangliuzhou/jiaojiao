@@ -10,7 +10,6 @@ App({
   },
   globalData: {
     //用户登录信息
-    userInfo: wx.getStorageSync("userInfo") || null,
-    openid: ""
+    userInfo: wx.getStorageSync("userInfo") || null
   }
 });

@@ -2,13 +2,22 @@
   "pages": [
     "pages/index/index",
     "pages/home/index",
-    "pages/classify/index",
-    "pages/userCenter/index"
+    "pages/notice/index",
+    "pages/userCenter/index",
+    "pages/exerciseBook/index",
+    "pages/video/index",
+    "pages/homework/index",
+    "pages/favorites/index",
+    "pages/signIn/index",
+    "pages/classroom/index",
+    "pages/homeworkSend/index",
+    "pages/signInSend/index",
+    "pages/classroomSend/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "象征微商城",
+    "navigationBarTitleText": "小课堂",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
@@ -24,10 +33,10 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/classify/index",
+        "pagePath": "pages/notice/index",
         "iconPath": "assets/image/tabbar/classify.png",
         "selectedIconPath": "assets/image/tabbar/classify-selected.png",
-        "text": "分类"
+        "text": "消息"
       },
       {
         "pagePath": "pages/userCenter/index",

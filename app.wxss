@@ -4,3 +4,6 @@
   /*iphoneX底部安全距离*/
   padding-bottom: env(safe-area-inset-bottom);
 }
+input {
+  border: 1px solid #ccc;
+}

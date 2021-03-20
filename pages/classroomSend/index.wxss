@@ -1,0 +1,15 @@
+.class-item {
+  background: #ccc;
+  margin: 20rpx;
+  box-sizing: border-box;
+}
+.class-item .copy-btn {
+  border: 1px solid #acc;
+  width: 300rpx;
+  background: #730;
+}
+.create-class {
+  border: 1px solid #acc;
+  width: 300rpx;
+  background: #730;
+}

@@ -1,3 +1,8 @@
+<image
+  class="banner"
+  src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f"
+  mode="widthFix"
+/>
 <view>请先选择您的身份：</view>
 
 <radio-group bindchange="radioChange">

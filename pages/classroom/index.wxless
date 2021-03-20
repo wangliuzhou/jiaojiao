@@ -1,0 +1,21 @@
+.class-item {
+  background: #ccc;
+  margin: 20rpx;
+  box-sizing: border-box;
+  .copy-btn {
+    border: 1px solid #acc;
+    width: 300rpx;
+    background: #730;
+  }
+}
+.content-box {
+  padding: 100rpx;
+  border: 10rpx;
+  .join-btn {
+    border: 1px solid #acc;
+    width: 300rpx;
+    background: #730;
+    text-align: center;
+    margin-top: 20rpx;
+  }
+}

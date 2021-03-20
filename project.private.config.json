@@ -1,0 +1,29 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/classroomSend/index",
+          "pathName": "pages/classroomSend/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/classroom/index",
+          "pathName": "pages/classroom/index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

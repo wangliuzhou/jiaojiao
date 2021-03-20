@@ -1,0 +1,14 @@
+<view>
+  <block wx:for="{{classroomList}}" wx:key="_id">
+    <view class="class-item">
+      <view>课堂名称：{{item.name}}</view>
+      <view>课堂唯一码：{{item._id}}</view>
+      <view class="copy-btn" bindtap="setClipboardData" data-id="{{item._id}}">复制唯一码</view>
+    </view>
+  </block>
+  <view>
+    <view>创建新课堂</view>
+    <input type="text" placeholder="请输入群名称" bindinput="onInputChange" />
+    <view class="create-class" bindtap="onCreateClassRoom">创建课堂</view>
+  </view>
+</view>
