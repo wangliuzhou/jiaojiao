@@ -1,5 +1,5 @@
 {
-  "name": "xz-saas-wxapp",
+  "name": "mini",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -10,15 +10,6 @@
     "wxministore": "^1.2.9"
   },
   "devDependencies": {},
-  "scripts": {
-    "dev": "node ./.bin/index.js -e develop",
-    "beta": "node ./.bin/index.js -e trial",
-    "prod": "node ./.bin/index.js -e release"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@192.168.1.155:front/xz-saas-wxapp.git"
-  },
   "author": "",
   "license": "ISC"
 }

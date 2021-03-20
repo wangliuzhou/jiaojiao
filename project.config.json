@@ -1,280 +1,72 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		}
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.12.2",
-	"appid": "wx1f32445ed20525f6",
-	"projectname": "xz-saas-wxapp",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": 1,
-					"name": "pages/classify/index",
-					"pathName": "pages/classify/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "购物车",
-					"pathName": "pages/shoppingCart/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 0,
-					"name": "我的优惠券",
-					"pathName": "pages/coupons/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 3,
-					"name": "订单列表",
-					"pathName": "pages/orderList/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 3,
-					"name": "pages/userCenter/index",
-					"pathName": "pages/userCenter/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/membersCenter/index",
-					"pathName": "pages/membersCenter/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 6,
-					"name": "订单结算",
-					"pathName": "pages/orderSettle/index",
-					"query": "skuIds=294ZKONMR00VORZX31L8001&skuNums=225&fromCart=true",
-					"scene": null
-				},
-				{
-					"id": 7,
-					"name": "支付结果",
-					"pathName": "pages/payResult/index",
-					"query": "price=180.00",
-					"scene": null
-				},
-				{
-					"id": 7,
-					"name": "pages/goodsDetail/index",
-					"pathName": "pages/goodsDetail/index",
-					"query": "id=WZYEJ8V49DZLD317J4Q9",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "订单物流",
-					"pathName": "pages/orderLogistics/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "订单详情",
-					"pathName": "pages/orderDetail/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "测试",
-					"pathName": "pages/test/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 12,
-					"name": "微页面",
-					"pathName": "pages/microPage/index",
-					"query": "id=12",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/goodsGroup/index",
-					"pathName": "pages/goodsGroup/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/orderLogistics/index",
-					"pathName": "pages/orderLogistics/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 16,
-					"name": "pages/chooseCoupon/index",
-					"pathName": "pages/chooseCoupon/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "注册即会员",
-					"pathName": "pages/joinMember/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "地址列表",
-					"pathName": "pages/addressList/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 18,
-					"name": "pages/chooseCoupon/index",
-					"pathName": "pages/chooseCoupon/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/goodsDetail/index",
-					"pathName": "pages/goodsDetail/index",
-					"query": "id=294ZKO8Z22Y95QZJ31L8",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/goodsDetail/index",
-					"pathName": "pages/goodsDetail/index",
-					"query": "id=ZNE1K9L0YOV796Y5JMQL",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/joinMember/index",
-					"pathName": "pages/joinMember/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 23,
-					"name": "pages/orderSettle/index",
-					"pathName": "pages/orderSettle/index",
-					"query": "skuIds=YDEVK043LGR6L94DJNPO001%2CYDEVK04311RO5RVVJNPO002&skuNums=11%2C9&fromCart=true",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/orderDetail/index",
-					"pathName": "pages/orderDetail/index",
-					"query": "id=ZYEJ8MV2930W8V85J4Q9",
-					"scene": null
-				},
-				{
-					"id": 25,
-					"name": "pages/logisticsPackage/index",
-					"pathName": "pages/logisticsPackage/index",
-					"query": "orderOutId=LZWJWLQYNOLNM63OX7D1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/orderSettle/index",
-					"pathName": "pages/orderSettle/index",
-					"query": "skuIds=ZNE1K9LQN3Y514D5JMQL007&skuNums=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/orderDetail/index",
-					"pathName": "pages/orderDetail/index",
-					"query": "id=DEVK00O9V0VG1RPVKNPO",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/orderSettle/index",
-					"pathName": "pages/orderSettle/index",
-					"query": "skuIds=YDEVK045P9R6OEEDJNPO005&skuNums=20&seckillActivityId=TMSXGJZ9G2Q3L",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/seckill/index",
-					"pathName": "pages/seckill/index",
-					"query": "id=YDEVK045P9R6OEEDJNPO&activityId=186",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/goodsDetail/index",
-					"pathName": "pages/goodsDetail/index",
-					"query": "id=ZNE1K9LG6EV66D4EJMQL",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/addAddress/index",
-					"pathName": "pages/addAddress/index",
-					"query": "orderOutId=LZWJWLQYNOLNM63OX7D1",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.12.2",
+  "appid": "wx4424b7fb3e13a00c",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": []
+    }
+  }
 }
