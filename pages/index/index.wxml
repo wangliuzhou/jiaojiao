@@ -1,2 +1,12 @@
-index
-<view>{{test}}</view>
+<view>请先选择您的身份：</view>
+
+<radio-group bindchange="radioChange">
+  <label class wx:for="{{radios}}" wx:key="value">
+    <radio value="{{item.value}}" />
+    {{item.name}}
+  </label>
+</radio-group>
+
+<view wx:if="{{value===0 || value===1}}">
+  <button type="primary" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">授权登录</button>
+</view>

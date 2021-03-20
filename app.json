@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/home/index",
     "pages/classify/index",
     "pages/userCenter/index"
   ],
@@ -17,7 +18,7 @@
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/home/index",
         "iconPath": "assets/image/tabbar/index.png",
         "selectedIconPath": "assets/image/tabbar/index-selected.png",
         "text": "首页"

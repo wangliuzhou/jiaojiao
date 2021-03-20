@@ -1,113 +1,35 @@
-import { post } from "../utils/request";
+const app = getApp();
+const db = wx.cloud.database();
+
+// 获取openid
+export const getOpenId = async () => {
+  const { result } = await wx.cloud.callFunction({
+    // 要调用的云函数名称
+    name: "getOpenId"
+  });
+  app.globalData.openid = result.openid;
+};
+
+// 查询数据库是否有记录
+export const checkResult = async () => {
+  const { data = [] } = await db
+    .collection("users")
+    .where({ _openid: app.globalData.openid })
+    .get();
+  if (data.length) {
+    // 已授权登录过，数据库有记录
+    wx.switchTab({
+      url: "/pages/home/index"
+    });
+    wx.setStorage({
+      key: "userInfo",
+      data: data[0]
+    });
+  }
+};
 
 //自动登录
-export const autoLogin = () => {
-  return wx.login().then(({ code }) => {
-    return post("/sysWechatThirdAuth/miniProgramLogin", {
-      jsCode: code
-    }).then(({ data }) => {
-      if (data.account) {
-        // 登录成功
-        loginCallback(data);
-      }
-    });
-  });
-};
-
-// 手机号登录
-export const login = ({ encryptedData, iv }) => {
-  const app = getApp();
-  return wx.login().then(({ code }) => {
-    return post("/sysWechatThirdAuth/miniProgramLogin", {
-      authAppID: app.globalData.ext.appid,
-      jsCode: code,
-      encryptedData,
-      iv,
-      flag: 0
-    }).then(({ data }) => {
-      if (data.account) {
-        wx.showToast({
-          title: "登录成功",
-          icon: "none"
-        });
-        loginCallback(data);
-      }
-    });
-  });
-};
-
-//登录回调
-export const loginCallback = ({ account, token, tokenTime }) => {
-  //设置登录信息
-  setLoginInfo({ account, token, tokenTime });
-  //调用页面回调
-  callLoginCallback(account);
-};
-
-//设置登录信息
-export const setLoginInfo = ({ account, token, tokenTime }) => {
-  const app = getApp();
-  app.store.setState({
-    userInfo: account,
-    isLogin: true
-  });
-  wx.setStorageSync("userInfo", account);
-  wx.setStorageSync("token", token);
-  wx.setStorageSync("tokenTime", tokenTime);
-};
-
-export const callLoginCallback = () => {
-  let pages = getCurrentPages();
-  let page = pages[pages.length - 1];
-  page.loginCallback && page.loginCallback();
-};
-
-//清除用户登录信息
-export const clearLoginInfo = () => {
-  const app = getApp();
-  app.store.setState({
-    userInfo: null,
-    isLogin: false
-  });
-  wx.removeStorageSync("userInfo");
-  wx.removeStorageSync("token");
-  wx.removeStorageSync("tokenTime");
-};
-
-// 授权手机号
-export const authPhone = ({ encryptedData, iv, jsCode }) => {
-  const app = getApp();
-  return post("/sysWechatThirdAuth/miniProgramLogin", {
-    authAppID: app.globalData.ext.appid,
-    encryptedData,
-    iv,
-    jsCode,
-    flag: 0
-  })
-    .then(({ data, data: { account, token, tokenTime } }) => {
-      loginCallback({ account, token, tokenTime });
-      return data;
-    })
-    .catch(() => {});
-};
-
-// 授权用户信息
-export const authUserInfo = ({ encryptedData, iv, jsCode }) => {
-  const app = getApp();
-  return post("/mobile/sysWechatThirdAuth/getMiniProgramUserInfo", {
-    encryptedData,
-    iv,
-    jsCode,
-    authAppID: app.globalData.ext.appid
-  })
-    .then(({ data }) => {
-      app.store.setState({
-        userInfo: data
-      });
-      wx.setStorageSync("userInfo", data);
-
-      callLoginCallback();
-      return data;
-    })
-    .catch(err => {});
+export const autoLogin = async () => {
+  await getOpenId();
+  await checkResult();
 };
