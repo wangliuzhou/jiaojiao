@@ -1,0 +1,37 @@
+<view wx:if="{{homework.homeworkType===0}}">
+  <view class="public-item-box">
+    <view class="public-item-title">课堂名：</view>
+    <view class="public-item-content">{{homework.name}}</view>
+  </view>
+  <view class="public-item-box">
+    <view class="public-item-title">作业内容：</view>
+    <view class="public-item-content">{{homework.homeworkText}}</view>
+  </view>
+</view>
+<view wx:if="{{homework.homeworkType===1}}">
+  <view class="public-item-box">
+    <view class="public-item-title">课堂名：</view>
+    <view class="public-item-content">{{homework.name}}</view>
+  </view>
+  <view class="public-item-box">
+    <view class="public-item-title">作业内容：</view>
+    <image
+      class="homework-image"
+      src="{{homework.homeworkImgId}}"
+      mode="widthFix"
+      bindtap="previewImage"
+    />
+  </view>
+</view>
+<view wx:if="{{homework.homeworkType===2}}">
+  <view class="public-item-box">
+    <view class="public-item-title">课堂名：</view>
+    <view class="public-item-content">{{homework.name}}</view>
+  </view>
+  <view class="public-item-box">
+    <view class="public-item-title">作业内容：</view>
+  </view>
+  <view class="download-box" bindtap="downloadFile">
+    <image src="./../../assets/image/file_icon.jpg" mode="widthFix" />点击下载,查看作业
+  </view>
+</view>

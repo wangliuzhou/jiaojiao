@@ -2,112 +2,164 @@
 const app = getApp();
 
 Page({
-  studentList: [
-    {
-      src:
-        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f",
-      title: "练习册",
-      url: "/pages/exerciseBook/index"
-    },
-    {
-      src:
-        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f",
-      title: "视频课",
-      url: "/pages/video/index"
-    },
-    {
-      src:
-        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f",
-      title: "作业",
-      url: "/pages/homework/index"
-    },
-    {
-      src:
-        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f",
-      title: "收藏夹",
-      url: "/pages/favorites/index"
-    },
-    {
-      src:
-        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f",
-      title: "签到",
-      url: "/pages/signIn/index"
-    },
-    {
-      src:
-        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f",
-      title: "课堂",
-      url: "/pages/classroom/index"
-    }
-  ],
-  teacherList: [
-    {
-      src:
-        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f",
-      title: "作业",
-      url: "/pages/homeworkSend/index"
-    },
-    {
-      src:
-        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f",
-      title: "签到",
-      url: "/pages/signInSend/index"
-    },
-    {
-      src:
-        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f",
-      title: "班级",
-      url: "/pages/classroomSend/index"
-    }
-  ],
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    radioValue: 0,
+    inputValue: "",
+    imgUrl: "",
+    fileUrl: "",
+    choosedPickerIdx: 0,
+    rooms: []
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(app.globalData);
-    const { occupation } = app.globalData.userInfo;
+    this.getTeacherRooms();
+  },
+  //获取此老师创建的所有课堂
+  async getTeacherRooms() {
+    const { result } = await wx.cloud.callFunction({
+      name: "room",
+      data: {
+        type: "getTeacherRooms",
+        openid: app.globalData.userInfo.openid
+      }
+    });
+    console.log("获取课堂list", result);
     this.setData({
-      list: occupation === 0 ? this.studentList : this.teacherList
+      rooms: result.data
+    });
+  },
+  bindRoomIdChange(e) {
+    const { value } = e.detail;
+    this.setData({
+      choosedPickerIdx: value[0]
+    });
+  },
+  radioChange(e) {
+    this.setData({ radioValue: ~~e.detail.value });
+  },
+  // 文字作业输入
+  onInput(e) {
+    this.setData({ inputValue: e.detail.value.trim() });
+  },
+  onChooseImage() {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ["original", "compressed"],
+      sourceType: ["album", "camera"],
+      success: res => {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePath = res.tempFilePaths[0];
+        this.setData({
+          imgUrl: tempFilePath
+        });
+      }
+    });
+  },
+  onChooseMessageFile() {
+    wx.chooseMessageFile({
+      count: 1,
+      type: "all",
+      success: res => {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFile = res.tempFiles[0];
+        console.log("tempFile", tempFile);
+
+        this.setData({
+          fileUrl: tempFile.path,
+          fileName: tempFile.name
+        });
+      }
     });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {},
+  // 老师确定上传作业
+  handleClickSubmit() {
+    const { radioValue, inputValue, imgUrl, fileUrl } = this.data;
+    const a = radioValue === 0 && inputValue;
+    const b = radioValue === 1 && imgUrl;
+    const c = radioValue === 2 && fileUrl;
+    if (a) {
+      this.teacherAddHomework();
+    } else if (b || c) {
+      this.upload();
+    } else {
+      wx.showToast({
+        title: "请先提供作业内容",
+        icon: "none"
+      });
+    }
+  },
 
   /**
-   * 生命周期函数--监听页面显示
+   * 上传文件
    */
-  onShow: function() {},
+  upload() {
+    const { imgUrl, fileUrl, radioValue, fileName } = this.data;
+    const timeStamp = +new Date() + "";
+    const fileCloudPath = timeStamp + fileName;
+
+    wx.cloud
+      .uploadFile({
+        cloudPath: radioValue === 1 ? timeStamp : fileCloudPath, // 云储存上的路径
+        filePath: radioValue === 1 ? imgUrl : fileUrl // 文件临时路径
+      })
+      .then(res => {
+        console.log("上传成功", res);
+
+        this.teacherAddHomework(res.fileID);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  },
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * 创建作业
+   * @param {Sting} fileID 云空间文件路径
    */
-  onHide: function() {},
+  async teacherAddHomework(fileID) {
+    console.log("teacherAddHomework fileID", fileID);
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {}
+    const { radioValue, inputValue, choosedPickerIdx, rooms } = this.data;
+    const { members, _id, name } = rooms[choosedPickerIdx];
+    const newMembers = members.map(openid => ({
+      openid,
+      status: 0 // 0代表未查看   1代表已查看
+    }));
+    const { result } = await wx.cloud.callFunction({
+      name: "homework",
+      data: {
+        type: "teacherAddHomework",
+        openid: app.globalData.userInfo.openid,
+        roomId: _id,
+        name,
+        members: newMembers,
+        homeworkType: radioValue,
+        homeworkText: radioValue === 0 ? inputValue : "",
+        homeworkImgId: radioValue === 1 ? fileID : "",
+        homeworkFileId: radioValue === 2 ? fileID : ""
+      }
+    });
+    if (result._id) {
+      wx.showToast({
+        icon: "none",
+        title: "作业发布成功"
+      });
+      wx.navigateBack({
+        delta: 1
+      });
+    } else {
+      wx.showToast({
+        icon: "none",
+        title: "作业发布失败"
+      });
+    }
+    console.log(888, result);
+  }
 });

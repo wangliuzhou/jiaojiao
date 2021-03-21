@@ -21,6 +21,37 @@
         {
           "name": "pages/classroom/index",
           "pathName": "pages/classroom/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/homeworkSend/index",
+          "pathName": "pages/homeworkSend/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/signInSend/index",
+          "pathName": "pages/signInSend/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/signIn/index",
+          "pathName": "pages/signIn/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/homework/index",
+          "pathName": "pages/homework/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/homeworkDetail/index",
+          "pathName": "pages/homeworkDetail/index",
+          "query": "homeworkId=79550af260574ceb0b312afa7946f348",
           "scene": null
         }
       ]

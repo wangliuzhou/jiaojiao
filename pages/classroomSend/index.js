@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classroomList: [1],
+    classroomList: [],
     classRoomName: ""
   },
 
@@ -55,6 +55,9 @@ Page({
         wx.showToast({
           icon: "none",
           title: "创建课堂成功"
+        });
+        this.setData({
+          classRoomName: ""
         });
         this.getTeacherRooms();
       }

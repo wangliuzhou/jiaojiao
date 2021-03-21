@@ -80,6 +80,9 @@ Page({
           title: "加入成功"
         });
         this.onClose();
+        wx.navigateBack({
+          delta: 1
+        });
       } else {
         wx.showToast({
           icon: "none",

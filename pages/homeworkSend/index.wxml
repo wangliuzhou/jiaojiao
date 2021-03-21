@@ -1,14 +1,61 @@
-<image
-  class="banner"
-  src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f"
-  mode="widthFix"
-/>
+<!-- 发布过的作业可以写 -->
 
-<view class="list-box">
-  <block wx:for="{{list}}" wx:key="index">
-    <view class="item-box">
-      <image class="item-image" src="{{item.src}}" />
-      <view class="item-title">{{item.title}}</view>
-    </view>
-  </block>
+<view>请选择发布作业的方式：</view>
+<view>
+  <radio-group bindchange="radioChange">
+    <label class="radio">
+      <radio value="{{0}}" checked="{{true}}" />文字
+    </label>
+    <label class="radio">
+      <radio value="{{1}}" />图片
+    </label>
+    <label class="radio">
+      <radio value="{{2}}" />文件
+    </label>
+  </radio-group>
 </view>
+
+<input
+  type="text"
+  placeholder="请输入作业内容"
+  wx:if="{{radioValue===0}}"
+  value="{{inputValue}}"
+  bindinput="onInput"
+  class="input-class"
+/>
+<view
+  class="choose-btn input-class"
+  wx:if="{{radioValue===1}}"
+  bindtap="onChooseImage"
+>{{imgUrl?"替换图片":"请选择图片"}}</view>
+<view
+  class="choose-btn input-class"
+  wx:if="{{radioValue===2}}"
+  bindtap="onChooseMessageFile"
+>{{fileUrl?"替换文件":"请选择文件"}}</view>
+
+<image src="{{imgUrl}}" wx:if="{{imgUrl&&radioValue===1}}" />
+
+<view wx:if="{{fileUrl&&radioValue===2}}">
+  <image src="./../../assets/image/file_icon.jpg" mode="widthFix" style="width:40rpx" />文件上传成功
+</view>
+
+<view wx:if="{{rooms.length}}">
+  <view>请选择发布作业的课堂:</view>
+  <picker-view
+    indicator-style="height: 30px;"
+    style="width: 100%; height: 150px;margin-bottom:50rpx"
+    value="{{[choosedPickerIdx]}}"
+    bindchange="bindRoomIdChange"
+  >
+    <picker-view-column>
+      <view
+        wx:for="{{rooms}}"
+        wx:key="_id"
+        style="line-height: 30px; text-align: center;"
+      >{{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+
+<button class="btn" bindtap="handleClickSubmit">发布作业</button>

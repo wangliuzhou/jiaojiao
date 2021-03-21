@@ -1,17 +1,15 @@
-.list-box {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+.list-wrap {
+  margin: 24rpx 0;
 }
-.list-box .item-box {
-  width: 33.33%;
-  text-align: center;
+.list-wrap .title {
+  color: #333;
+  font-size: 32rpx;
 }
-.list-box .item-box .item-image {
-  width: 80rpx;
-  height: 80rpx;
-}
-.list-box .item-box .item-title {
+.list-wrap .room-name {
   color: #333;
   font-size: 28rpx;
+}
+.list-wrap .signed-tag {
+  color: aquamarine;
+  font-size: 26rpx;
 }

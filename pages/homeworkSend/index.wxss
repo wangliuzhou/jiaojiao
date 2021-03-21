@@ -1,17 +1,8 @@
-.list-box {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+.input-class {
+  margin: 40rpx 0;
 }
-.list-box .item-box {
-  width: 33.33%;
-  text-align: center;
-}
-.list-box .item-box .item-image {
-  width: 80rpx;
-  height: 80rpx;
-}
-.list-box .item-box .item-title {
-  color: #333;
-  font-size: 28rpx;
+.choose-btn {
+  border: 1px solid #acc;
+  width: 300rpx;
+  background: #730;
 }

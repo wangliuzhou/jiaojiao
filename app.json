@@ -12,7 +12,8 @@
     "pages/classroom/index",
     "pages/homeworkSend/index",
     "pages/signInSend/index",
-    "pages/classroomSend/index"
+    "pages/classroomSend/index",
+    "pages/homeworkDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

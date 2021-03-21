@@ -28,6 +28,16 @@ exports.main = async (event, context) => {
   } else if (type === "getStudentRooms") {
     return db.collection("room").get();
   } else if (type === "studentJoinRoom") {
+    // 给学生对象加上自己加入过的课堂
+    await db
+      .collection("users")
+      .doc(openid)
+      .update({
+        data: {
+          rooms: _.push([roomId])
+        }
+      });
+    // 找到学生刚点过的课堂，把学生openid加进去
     return db
       .collection("room")
       .doc(roomId)

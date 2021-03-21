@@ -1,14 +1,26 @@
-<image
-  class="banner"
-  src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f"
-  mode="widthFix"
-/>
+<view>
+  <view>请选择签到课堂</view>
+  <picker-view
+    indicator-style="height: 30px;"
+    style="width: 100%; height: 150px;margin-bottom:50rpx"
+    value="{{[choosedPickerIdx]}}"
+    bindchange="bindRoomIdChange"
+  >
+    <picker-view-column>
+      <view
+        wx:for="{{classroomList}}"
+        wx:key="_id"
+        style="line-height: 30px; text-align: center;"
+      >{{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
 
-<view class="list-box">
-  <block wx:for="{{list}}" wx:key="index">
-    <view class="item-box">
-      <image class="item-image" src="{{item.src}}" />
-      <view class="item-title">{{item.title}}</view>
-    </view>
-  </block>
+  <view>请选择签到时长</view>
+  <radio-group bindchange="radioChange">
+    <label wx:for="{{times}}" wx:key="value">
+      <radio value="{{item.value}}" />
+      {{item.label}}
+    </label>
+  </radio-group>
 </view>
+<button class="btn" disabled="{{timeType===''}}" bindtap="setSign">设置时长</button>

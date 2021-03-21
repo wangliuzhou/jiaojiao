@@ -7,3 +7,25 @@
 input {
   border: 1px solid #ccc;
 }
+.btn {
+  border: 1px solid #acc;
+  width: 300rpx;
+  margin: 40rpx auto;
+  font-size: 32rpx;
+}
+.btn2 {
+  border: 1px solid #acc;
+  font-size: 24rpx;
+  display: inline-block;
+}
+.public-item-box {
+  display: flex;
+}
+.public-item-box .public-item-title {
+  font-size: 32rpx;
+  color: #333;
+}
+.public-item-box .public-item-content {
+  font-size: 32rpx;
+  color: #333;
+}

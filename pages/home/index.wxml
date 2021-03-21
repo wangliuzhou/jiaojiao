@@ -6,7 +6,7 @@
 
 <view class="list-box">
   <block wx:for="{{list}}" wx:key="index">
-    <view class="item-box" bindtap="goPage" data-path="{{item.path}}">
+    <view class="item-box" bindtap="goPage" data-item="{{item}}">
       <image class="item-image" src="{{item.src}}" />
       <view class="item-title">{{item.title}}</view>
     </view>
