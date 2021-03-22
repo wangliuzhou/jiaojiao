@@ -1,42 +1,23 @@
-<wxs src="../../wxs/image.wxs" module="image" />
-<view class="user-content-page">
-  <customNavigation title="个人中心" scrollTop="{{scrollTop}}"></customNavigation>
-  <view class="user-info-card" style="height: 444rpx;padding-top:111rpx">
-    <view class="user-info">
-      <view class="user-avatar-box">
-        <image class src="{{$state.userInfo.userAvatar}}" mode="widthFix" />
-        <open-data
-          wx:if="{{!$state.userInfo.userAvatar}}"
-          type="userAvatarUrl"
-          style="width:100%;height:100%;display:block"
-        ></open-data>
-      </view>
-      <AuthAll type="userInfo"></AuthAll>
+<view class="user-info">
+  <view class="user-info-box">
+    <view class="user-avatar-box">
+      <image src="{{userInfo.avatarUrl}}" mode="widthFix" />
     </view>
-    <AuthAll type="phone"></AuthAll>
-  </view>
-  <view class="order-card">
-    <view class="header">
-      <view class="left-label">我的订单</view>
-      <view class="right-go-all">
-        <text class="text">查看全部订单</text>
-        <IconFont type="iconright" fontStyle="font-size:22rpx;color:#999999" />
-      </view>
-    </view>
-    <view class="order-types">
-      <block wx:for="{{orderList}}" wx:key="label">
-        <view class="item">
-          <view
-            wx:if="{{item.num}}"
-            class="order-num"
-            style="padding: 0 {{ item.num > 9 ?'4rpx':'0' }}"
-          >{{item.num > 99 ? '99+':item.num}}</view>
-          <image mode="aspectFill" src="{{item.icon}}" class="icon" />
-          <view class="label">{{item.label}}</view>
-        </view>
-      </block>
-    </view>
-    <AuthAll type="phone"></AuthAll>
+    <view class="name">{{userInfo.nickName}}</view>
   </view>
 </view>
-<logo />
+
+<view class="public-item">
+  <view class="title">{{userInfo.nickName}}</view>
+  <view class="right-box" bindtap="goChangeInfoPage" data-type="1">
+    <text class="text">修改昵称</text>
+    <IconFont type="iconright" fontStyle="font-size:22rpx;color:#999999" />
+  </view>
+</view>
+<view class="public-item">
+  <image src="{{userInfo.avatarUrl}}" mode="widthFix" class="user-header" />
+  <view class="right-box" bindtap="goChangeInfoPage" data-type="2">
+    <text class="text">修改头像</text>
+    <IconFont type="iconright" fontStyle="font-size:22rpx;color:#999999" />
+  </view>
+</view>

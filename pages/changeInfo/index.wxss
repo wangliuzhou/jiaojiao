@@ -1,0 +1,11 @@
+/* pages/changeInfo/index.wxss */
+button {
+  width: 300rpx;
+  font-size: 32rpx;
+  margin: 24rpx auto;
+}
+image {
+  width: 300rpx;
+  height: 300rpx;
+  margin: 24rpx 201rpx;
+}

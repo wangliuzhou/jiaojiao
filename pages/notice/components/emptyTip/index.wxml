@@ -1,4 +1,0 @@
-<view class="empty-tip">
-  <image src="../../../../assets/image/empty-classify.png" mode="widthFix"/>
-  <view class="empty-tip-text">暂无分类</view>
-</view>

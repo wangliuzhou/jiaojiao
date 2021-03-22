@@ -53,6 +53,17 @@
           "pathName": "pages/homeworkDetail/index",
           "query": "homeworkId=79550af260574ceb0b312afa7946f348",
           "scene": null
+        },
+        {
+          "name": "pages/userCenter/index",
+          "pathName": "pages/userCenter/index",
+          "query": "homeworkId=79550af260574ceb0b312afa7946f348",
+          "scene": null
+        },
+        {
+          "name": "pages/notice/index",
+          "pathName": "pages/notice/index",
+          "scene": null
         }
       ]
     }

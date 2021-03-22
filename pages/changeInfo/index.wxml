@@ -1,0 +1,9 @@
+<view wx:if="{{type===1}}">
+  <input type="text" placeholder="请输入昵称" bindinput="inputChange" />
+  <button bindtap="changeName" disabled="{{!name}}">确定修改</button>
+</view>
+<view wx:if="{{type===2}}">
+  <button bindtap="chooseHeader">点击选择头像</button>
+  <image src="{{imgUrl}}" mode="widthFix" />
+  <button bindtap="changeHeaderImageUrl" disabled="{{!imgUrl}}">确定修改</button>
+</view>

@@ -1,5 +1,10 @@
 @import "./assets/font/iconfont.wxss";
-
+page {
+  padding: 24rpx;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  color: #333;
+}
 .iphone-bottom {
   /*iphoneX底部安全距离*/
   padding-bottom: env(safe-area-inset-bottom);
@@ -18,14 +23,34 @@ input {
   font-size: 24rpx;
   display: inline-block;
 }
-.public-item-box {
+
+.public-item {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90rpx;
+  border-bottom: 1rpx solid #eeeeee;
 }
-.public-item-box .public-item-title {
-  font-size: 32rpx;
-  color: #333;
+
+.public-item .public-item-title {
+  height: 42rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 42rpx;
 }
-.public-item-box .public-item-content {
-  font-size: 32rpx;
-  color: #333;
+.public-item .right-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 37rpx;
+  line-height: 37rpx;
+}
+.public-item .right-box .text {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  margin-right: 10rpx;
 }

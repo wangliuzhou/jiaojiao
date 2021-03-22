@@ -1,3 +1,0 @@
-Component({
-  externalClasses: ["my-class"],
-})

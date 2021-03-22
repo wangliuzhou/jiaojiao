@@ -6,9 +6,9 @@
 
 <view class="list-box">
   <block wx:for="{{list}}" wx:key="index">
-    <view class="item-box" bindtap="goPage" data-item="{{item}}">
-      <image class="item-image" src="{{item.src}}" />
-      <view class="item-title">{{item.title}}</view>
+    <view class="item" bindtap="goPage" data-item="{{item}}">
+      <image mode="aspectFill" src="{{item.src}}" class="icon" />
+      <view class="label">{{item.title}}</view>
     </view>
   </block>
 </view>

@@ -1,9 +1,9 @@
 {
-  "navigationBarTitleText": "商品分类",
-  "component": true,
+  "navigationBarTitleText": "消息",
   "usingComponents": {
     "IconFont": "/components/iconfont/index",
-    "EmptyTip": "./components/emptyTip/index"
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
   },
   "enablePullDownRefresh": true
 }

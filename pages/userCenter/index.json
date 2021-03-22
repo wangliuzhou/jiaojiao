@@ -1,11 +1,7 @@
 {
-  "component": true,
   "usingComponents": {
-    "customNavigation": "/components/customNavigation/index",
-    "IconFont": "/components/iconfont/index",
-    "AuthAll": "/components/authAll/index"
+    "IconFont": "/components/iconfont/index"
   },
-  "navigationStyle": "custom",
   "backgroundColor": "#383d40",
-  "enablePullDownRefresh": true
+  "navigationBarTitleText": "个人中心"
 }
