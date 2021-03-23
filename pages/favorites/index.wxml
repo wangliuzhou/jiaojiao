@@ -1,14 +1,6 @@
-<image
-  class="banner"
-  src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f"
-  mode="widthFix"
-/>
-
-<view class="list-box">
-  <block wx:for="{{list}}" wx:key="index">
-    <view class="item-box">
-      <image class="item-image" src="{{item.src}}" />
-      <view class="item-title">{{item.title}}</view>
-    </view>
-  </block>
-</view>
+<block wx:for="{{list}}" wx:key="url">
+  <view class="top">
+    <view>{{item.title}}</view>
+  </view>
+  <video class="video" src="{{item.url}}" id="myVideo"></video>
+</block>

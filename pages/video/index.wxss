@@ -1,17 +1,21 @@
-.list-box {
+.video {
   width: 100%;
+}
+.top {
+  margin-top: 60rpx;
+  margin-bottom: 12rpx;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
-.list-box .item-box {
-  width: 33.33%;
-  text-align: center;
-}
-.list-box .item-box .item-image {
-  width: 80rpx;
-  height: 80rpx;
-}
-.list-box .item-box .item-title {
-  color: #333;
+.top .favo {
+  color: #ff8e6c;
   font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.top image {
+  width: 48rpx;
+  height: 48rpx;
 }

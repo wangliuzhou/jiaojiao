@@ -71,6 +71,18 @@
           "pathName": "pages/exerciseBook/detail/index",
           "query": "id=0",
           "scene": null
+        },
+        {
+          "name": "pages/video/index",
+          "pathName": "pages/video/index",
+          "query": "id=0",
+          "scene": null
+        },
+        {
+          "name": "pages/favorites/index",
+          "pathName": "pages/favorites/index",
+          "query": "id=0",
+          "scene": null
         }
       ]
     }
