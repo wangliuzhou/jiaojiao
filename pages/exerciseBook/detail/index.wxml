@@ -1,0 +1,21 @@
+<view wx:if="{{id===0}}">
+  <view class="type">单选题</view>
+  <block wx:for="{{list.radioList}}" wx:key="qId">
+    <view class="question">{{index+1}}、 {{item.question}}</view>
+    <radio-group>
+      <block wx:for="{{item.answers}}" wx:for-item="ans" wx:key="index">
+        <radio class="radio" color="#ffa600">{{ans.text}}</radio>
+      </block>
+    </radio-group>
+  </block>
+  <view class="type" style="margin-top:60rpx">多选题</view>
+  <block wx:for="{{list.checkboxList}}" wx:key="qId">
+    <view class="question">{{index+1}}、 {{item.question}}</view>
+    <checkbox-group>
+      <block wx:for="{{item.answers}}" wx:for-item="ans" wx:key="index">
+        <checkbox class="radio" color="#ffa600">{{ans.text}}</checkbox>
+      </block>
+    </checkbox-group>
+  </block>
+</view>
+<button class="btn" bindtap="submitAnswer">确定</button>

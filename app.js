@@ -1,7 +1,4 @@
-import store from "./store/index.js";
-
 App({
-  store,
   onLaunch() {
     console.log("app start...");
     wx.cloud.init({

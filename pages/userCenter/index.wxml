@@ -21,3 +21,10 @@
     <IconFont type="iconright" fontStyle="font-size:22rpx;color:#999999" />
   </view>
 </view>
+<view class="public-item">
+  <view class="title">小课堂</view>
+  <view class="right-box" bindtap="goAbout" data-type="1">
+    <text class="text">关于我们</text>
+    <IconFont type="iconright" fontStyle="font-size:22rpx;color:#999999" />
+  </view>
+</view>

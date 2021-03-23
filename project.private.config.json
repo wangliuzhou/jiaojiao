@@ -63,6 +63,13 @@
         {
           "name": "pages/notice/index",
           "pathName": "pages/notice/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/exerciseBook/detail/index",
+          "pathName": "pages/exerciseBook/detail/index",
+          "query": "id=0",
           "scene": null
         }
       ]

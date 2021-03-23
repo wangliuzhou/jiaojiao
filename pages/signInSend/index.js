@@ -21,6 +21,7 @@ Page({
    */
   onLoad: function(options) {
     this.getTeacherRooms();
+    console.log(app.globalData.userInfo);
   },
   radioChange(e) {
     this.setData({
@@ -30,14 +31,14 @@ Page({
   async setSign() {
     const { choosedPickerIdx, timeType, classroomList } = this.data;
     const { _id, name, members } = classroomList[choosedPickerIdx];
-    const newMembers = members.map(openid => ({
-      openid,
-      status: 0
-    }));
+    const newMembers = members
+      // .filter(openid => openid !== app.globalData.userInfo.openid) // 过滤老师本人
+      .map(openid => ({
+        openid,
+        status: 0
+      }));
     const startTime = +new Date();
-    // 要删除
-    const endTime = startTime + (timeType + 1) * 30 * 1000 + 60 * 60 * 1000;
-    // const endTime = startTime + (timeType + 1) * 30 * 1000;
+    const endTime = startTime + (timeType + 1) * 30 * 1000;
     const { result } = await wx.cloud.callFunction({
       name: "sign",
       data: {

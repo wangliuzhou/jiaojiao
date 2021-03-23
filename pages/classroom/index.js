@@ -83,6 +83,20 @@ Page({
         wx.navigateBack({
           delta: 1
         });
+
+        // 为了消息界面，群聊tab不再请求接口，需要更新app.globalData.userInfo.rooms
+        // 以供群聊tab快速渲染增加的课堂
+        const { rooms } = app.globalData.userInfo;
+        if (!rooms) {
+          // 还没有rooms字段
+          app.globalData.userInfo.rooms = [classroomId];
+        } else {
+          rooms.push(classroomId);
+        }
+        wx.setStorage({
+          key: "userInfo",
+          data: app.globalData.userInfo
+        });
       } else {
         wx.showToast({
           icon: "none",

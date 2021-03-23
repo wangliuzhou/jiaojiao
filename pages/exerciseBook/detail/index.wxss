@@ -1,0 +1,12 @@
+/* pages/exerciseBook/detail/index.wxss */
+.question {
+  margin: 48rpx 0 12rpx 0;
+}
+.radio {
+  margin-right: 36rpx;
+  font-size: 30rpx;
+}
+.type {
+  font-size: 38rpx;
+  color: rgb(253, 189, 110);
+}

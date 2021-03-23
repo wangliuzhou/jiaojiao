@@ -1,28 +1,94 @@
 //Page Object
 let app = getApp();
+const db = wx.cloud.database();
+const _ = db.command;
 
 Page({
   data: {
     active: 0,
     homeworkList: [],
     signingList: [], // 正在签到中的
-    signedList: [] // 已经过时的签到 包括已签到和未签到
+    signedList: [], // 已经过时的签到 包括已签到和未签到
+    rooms: [],
+    occupation: 1
   },
   active: 0,
   onLoad: function(options) {},
-  onShow: function() {},
+  onShow: function() {
+    console.log(app.globalData.userInfo);
+    const { rooms = [], occupation } = app.globalData.userInfo;
+    if (rooms.length !== this.data.rooms) {
+      // 新添加了room
+      this.setData({ rooms, occupation });
+    }
+    this.getRoomsDetail(rooms);
+  },
   // tabs切换
   onChange(e) {
     console.log(e);
     const { index } = e.detail;
-    if (index === 1 && this.data.active !== 1) {
+    if (index === 0 && this.data.active !== 0) {
+      // 获取群聊数据
+      this.getRoomsData();
+    } else if (index === 1 && this.data.active !== 1) {
+      // 获取作业数据
       this.getStudentHomeworkList();
     } else if (index === 2 && this.data.active !== 2) {
+      // 获取签到数据
       this.getAllSignList();
     }
     this.setData({
       active: index
     });
+  },
+
+  // 群聊相关
+  // 群聊相关
+  // 群聊相关
+  getRoomsData() {},
+
+  async getRoomsDetail(rooms) {
+    // const { result } = await wx.cloud.callFunction({
+    //   name: "rooms",
+    //   data: {
+    //     type: "getRoomsDetail",
+    //     rooms
+    //   }
+    // });
+    // console.log("getRoomsDetail", result);
+    // this.setData({
+    //   homeworkList: result.data
+    // });
+  },
+  async tapRoomItem(e) {
+    const { roomId } = e.currentTarget.dataset;
+    // const { result } = await wx.cloud.callFunction({
+    //   name: "rooms",
+    //   data: {
+    //     type: "getRoomsDetail",
+    //     rooms
+    //   }
+    // });
+    // console.log("getRoomsDetail", result);
+    // this.setData({
+    //   homeworkList: result.data
+    // });
+
+    const watcher = db
+      .collection("message")
+      .where({
+        room: roomId,
+        time: _.gt(new Date("2019-09-01 10:00"))
+      })
+      .watch({
+        onChange: snapshot => {
+          console.log(`新事件`, snapshot);
+        },
+        onError: err => {
+          console.error(`监听错误`, err);
+        }
+      });
+    console.log("watcher=====", watcher);
   },
 
   // 作业相关

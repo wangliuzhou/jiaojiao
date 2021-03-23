@@ -128,10 +128,12 @@ Page({
 
     const { radioValue, inputValue, choosedPickerIdx, rooms } = this.data;
     const { members, _id, name } = rooms[choosedPickerIdx];
-    const newMembers = members.map(openid => ({
-      openid,
-      status: 0 // 0代表未查看   1代表已查看
-    }));
+    const newMembers = members
+      // .filter(openid => openid !== app.globalData.userInfo.openid) // 过滤老师本人
+      .map(openid => ({
+        openid,
+        status: 0 // 0代表未查看   1代表已查看
+      }));
     const { result } = await wx.cloud.callFunction({
       name: "homework",
       data: {

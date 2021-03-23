@@ -1,0 +1,8 @@
+/* pages/about/index.wxss */
+.title {
+  margin-top: 24rpx;
+}
+.content {
+  font-size: 30rpx;
+  color: #888;
+}

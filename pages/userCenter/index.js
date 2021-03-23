@@ -20,5 +20,10 @@ Page({
     wx.navigateTo({
       url: "/pages/changeInfo/index?type=" + type
     });
+  },
+  goAbout() {
+    wx.navigateTo({
+      url: "/pages/about/index"
+    });
   }
 });

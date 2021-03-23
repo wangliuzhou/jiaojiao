@@ -1,7 +1,0 @@
-.phone-login-container {
-  padding: 0;
-  background: none;
-  &::after {
-    display: none;
-  }
-}

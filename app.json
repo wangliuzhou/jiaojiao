@@ -14,7 +14,9 @@
     "pages/signInSend/index",
     "pages/classroomSend/index",
     "pages/homeworkDetail/index",
-    "pages/changeInfo/index"
+    "pages/changeInfo/index",
+    "pages/about/index",
+    "pages/exerciseBook/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

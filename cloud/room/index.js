@@ -46,5 +46,13 @@ exports.main = async (event, context) => {
           members: _.push([openid])
         }
       });
+  } else if (type === "getRoomsDetail") {
+    // const { rooms } = event;
+    // return db
+    //   .collection("room")
+    //   .where({
+    //     owner: openid
+    //   })
+    //   .get();
   }
 };
