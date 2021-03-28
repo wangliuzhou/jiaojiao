@@ -7,14 +7,14 @@ export const getOpenId = async () => {
     // 要调用的云函数名称
     name: "getOpenId"
   });
-  return result;
+  return result.openid;
 };
 
 // 查询数据库是否有记录
-export const checkResult = async () => {
+export const checkResult = async openid => {
   const { data = [] } = await db
     .collection("users")
-    .where({ _openid: "{openid}" })
+    .where({ _id: openid })
     .get();
   console.log("checkResult", data);
 
@@ -28,11 +28,13 @@ export const checkResult = async () => {
       key: "userInfo",
       data: data[0]
     });
+  } else {
+    console.log("数据库未获取到openid");
   }
 };
 
 //自动登录
 export const autoLogin = async () => {
-  await checkResult();
-  // await getOpenId();
+  const openid = await getOpenId();
+  await checkResult(openid);
 };

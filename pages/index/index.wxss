@@ -1,3 +1,9 @@
 .banner {
   width: 100%;
 }
+.btn {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 100rpx;
+}

@@ -1,0 +1,5 @@
+.public-item {
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  margin-top: 24rpx;
+}

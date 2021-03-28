@@ -9,3 +9,7 @@ image {
   height: 300rpx;
   margin: 24rpx 201rpx;
 }
+page {
+  padding: 24rpx;
+  box-sizing: border-box;
+}

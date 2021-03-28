@@ -1,15 +1,13 @@
 <view wx:if="{{joinedRoomList.length}}">
-  您已加入的课堂：
+  <view class="public-title">您已加入的课堂：</view>
   <block wx:for="{{joinedRoomList}}" wx:key="_id">
     <view class="class-item">
       <view>课堂名称：{{item.name}}</view>
-      <!-- <view>课堂唯一码：{{item._id}}</view> -->
-      <!-- <view class="copy-btn" bindtap="setClipboardData" data-id="{{item._id}}">复制唯一码</view> -->
     </view>
   </block>
 </view>
 <view wx:if="{{notJoinedRoomList.length}}">
-  您未加入的课堂：
+  <view class="public-title">您未加入的课堂：</view>
   <block wx:for="{{notJoinedRoomList}}" wx:key="_id">
     <view class="class-item">
       <view bindtap="onTapClassName" data-id="{{item._id}}">课堂名称：{{item.name}}</view>
@@ -20,6 +18,6 @@
 <van-popup show="{{ show }}" bind:close="onClose">
   <view class="content-box">
     <input bindinput="onIdIput" placeholder="请输入课堂唯一码" value="{{inputValue}}" />
-    <view class="join-btn" bindtap="joinClass">确定加入</view>
+    <view class="btn" bindtap="joinClass">确定加入</view>
   </view>
 </van-popup>

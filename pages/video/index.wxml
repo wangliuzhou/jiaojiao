@@ -3,11 +3,12 @@
     <view>{{item.title}}</view>
     <view class="favo">
       收藏：
-      <image
-        src="{{item.favorites?'./../../assets/image/f.jpeg':'./../../assets/image/n.jpeg'}}"
+      <view
+        class="iconfont iconshoucang_huaban1"
+        style="color:{{item.favorites?'#02C874':'#aaa'}};font-size:60rpx"
         bindtap="favorites"
         data-index="{{index}}"
-      />
+      ></view>
     </view>
   </view>
   <video class="video" src="{{item.url}}" id="myVideo"></video>

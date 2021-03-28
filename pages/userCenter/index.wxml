@@ -8,16 +8,16 @@
 </view>
 
 <view class="public-item">
-  <view class="title">{{userInfo.nickName}}</view>
-  <view class="right-box" bindtap="goChangeInfoPage" data-type="1">
-    <text class="text">修改昵称</text>
+  <image src="{{userInfo.avatarUrl}}" class="user-header" />
+  <view class="right-box" bindtap="goChangeInfoPage" data-type="2">
+    <text class="text">修改头像</text>
     <IconFont type="iconright" fontStyle="font-size:22rpx;color:#999999" />
   </view>
 </view>
 <view class="public-item">
-  <image src="{{userInfo.avatarUrl}}" mode="widthFix" class="user-header" />
-  <view class="right-box" bindtap="goChangeInfoPage" data-type="2">
-    <text class="text">修改头像</text>
+  <view class="title">{{userInfo.nickName}}</view>
+  <view class="right-box" bindtap="goChangeInfoPage" data-type="1">
+    <text class="text">修改昵称</text>
     <IconFont type="iconright" fontStyle="font-size:22rpx;color:#999999" />
   </view>
 </view>

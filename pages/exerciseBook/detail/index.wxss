@@ -1,4 +1,9 @@
 /* pages/exerciseBook/detail/index.wxss */
+page {
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
 .question {
   margin: 48rpx 0 12rpx 0;
 }
@@ -8,5 +13,5 @@
 }
 .type {
   font-size: 38rpx;
-  color: rgb(253, 189, 110);
+  color: #02c874;
 }

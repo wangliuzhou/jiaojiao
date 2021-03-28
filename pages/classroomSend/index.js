@@ -1,6 +1,7 @@
 // pages/home/index.js
 const app = getApp();
 const db = wx.cloud.database();
+const _ = db.command;
 
 Page({
   /**
@@ -52,6 +53,16 @@ Page({
         }
       });
       if (result._id) {
+        // 给老师user加上room
+        const { data } = await db
+          .collection("users")
+          .doc(app.globalData.userInfo.openid)
+          .update({
+            data: {
+              rooms: _.push(result._id)
+            }
+          });
+
         wx.showToast({
           icon: "none",
           title: "创建课堂成功"

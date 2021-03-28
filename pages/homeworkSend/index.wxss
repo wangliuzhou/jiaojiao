@@ -1,8 +1,23 @@
-.input-class {
-  margin: 40rpx 0;
+page {
+  padding: 0 24rpx;
+  box-sizing: border-box;
 }
-.choose-btn {
+.radio-group {
+  padding: 36rpx;
+  box-sizing: border-box;
+}
+.btn22 {
   border: 1px solid #acc;
+  border-radius: 16rpx;
   width: 300rpx;
-  background: #730;
+  padding: 12rpx;
+  text-align: center;
+}
+.picker-view {
+  background: #e8ffec;
+  margin-top: 24rpx;
+}
+.flex {
+  display: flex;
+  align-items: center;
 }

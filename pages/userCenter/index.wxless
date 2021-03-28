@@ -1,8 +1,9 @@
 .user-info {
-  background: rgb(102, 101, 101);
-  height: 38vh;
+  background: rgb(186, 253, 181);
+  height: 30vh;
   padding: 48rpx;
   box-sizing: border-box;
+
   .user-info-box {
     display: flex;
     align-items: center;
@@ -19,7 +20,7 @@
       }
     }
     .name {
-      color: #ffffff;
+      color: rgb(61, 60, 60);
       margin-left: 24rpx;
     }
   }

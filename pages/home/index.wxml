@@ -1,13 +1,14 @@
-<image
-  class="banner"
-  src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2017%2F585%2F781%2F4676187585_997192271.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618823899&t=2f1d1a16607264ad0e284a85863c4c8f"
-  mode="widthFix"
-/>
-
+<swiper class="swiper" indicator-dots="{{true}}" indicator-active-color="#02C874">
+  <block wx:for="{{swiperList}}" wx:key="*this">
+    <swiper-item>
+      <image class="banner" src="{{item}}" alt />
+    </swiper-item>
+  </block>
+</swiper>
 <view class="list-box">
   <block wx:for="{{list}}" wx:key="index">
     <view class="item" bindtap="goPage" data-item="{{item}}">
-      <image mode="aspectFill" src="{{item.src}}" class="icon" />
+      <view class="iconfont {{item.icon}}"></view>
       <view class="label">{{item.title}}</view>
     </view>
   </block>

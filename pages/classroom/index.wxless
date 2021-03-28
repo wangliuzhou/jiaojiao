@@ -1,21 +1,30 @@
 .class-item {
-  background: #ccc;
+  background: rgb(230, 228, 228);
   margin: 20rpx;
+  box-sizing: border-box;
+  border-radius: 12rpx;
+  border: 1px solid #02c874;
+  padding: 24rpx;
   box-sizing: border-box;
   .copy-btn {
     border: 1px solid #acc;
     width: 300rpx;
-    background: #730;
+    background: #02c874;
   }
 }
 .content-box {
-  padding: 100rpx;
-  border: 10rpx;
-  .join-btn {
+  padding: 120rpx;
+  border: 1px solid #02c874;
+  .btn {
     border: 1px solid #acc;
     width: 300rpx;
-    background: #730;
+    background: #dbf5ea;
     text-align: center;
-    margin-top: 20rpx;
+    margin-top: 60rpx;
+    text-align: center;
+    line-height: 80rpx;
+  }
+  input {
+    width: 300rpx;
   }
 }

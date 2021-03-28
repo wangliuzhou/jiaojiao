@@ -16,11 +16,12 @@
     "pages/homeworkDetail/index",
     "pages/changeInfo/index",
     "pages/about/index",
-    "pages/exerciseBook/detail/index"
+    "pages/exerciseBook/detail/index",
+    "pages/chatRoom/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#02C874",
     "navigationBarTitleText": "小课堂",
     "navigationBarTextStyle": "black"
   },

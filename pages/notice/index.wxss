@@ -2,3 +2,33 @@
   padding: 24rpx;
   box-sizing: border-box;
 }
+.content-box .flex {
+  display: flex;
+  align-items: center;
+}
+.content-box .flex .owner-header-img {
+  width: 60rpx;
+  height: 60rpx;
+  flex: 0 0 60rpx;
+  margin-right: 24rpx;
+  border-radius: 12rpx;
+}
+.list-wrap {
+  margin: 24rpx 0;
+  box-sizing: border-box;
+}
+.list-wrap .signed-box {
+  padding: 24rpx;
+  border: 1px solid #02c874;
+  margin-top: 24rpx;
+  box-sizing: border-box;
+}
+.list-wrap .room-name {
+  color: #333;
+  font-size: 28rpx;
+}
+.list-wrap .signed-tag {
+  color: #5b8577;
+  font-size: 22rpx;
+  margin-left: 60rpx;
+}

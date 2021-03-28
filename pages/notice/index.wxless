@@ -1,4 +1,35 @@
 .content-box {
   padding: 24rpx;
   box-sizing: border-box;
+  .flex {
+    display: flex;
+    align-items: center;
+    .owner-header-img {
+      width: 60rpx;
+      height: 60rpx;
+      flex: 0 0 60rpx;
+      margin-right: 24rpx;
+      border-radius: 12rpx;
+    }
+  }
+}
+.list-wrap {
+  margin: 24rpx 0;
+  box-sizing: border-box;
+  .signed-box {
+    // margin: 0 24rpx;
+    padding: 24rpx;
+    border: 1px solid #02c874;
+    margin-top: 24rpx;
+    box-sizing: border-box;
+  }
+  .room-name {
+    color: #333;
+    font-size: 28rpx;
+  }
+  .signed-tag {
+    color: rgb(91, 133, 119);
+    font-size: 22rpx;
+    margin-left: 60rpx;
+  }
 }

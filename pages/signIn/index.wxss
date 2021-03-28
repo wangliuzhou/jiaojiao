@@ -1,15 +1,20 @@
 .list-wrap {
   margin: 24rpx 0;
+  box-sizing: border-box;
 }
-.list-wrap .title {
-  color: #333;
-  font-size: 32rpx;
+.list-wrap .signed-box {
+  margin: 0 24rpx;
+  padding: 24rpx;
+  border: 1px solid #02c874;
+  margin-top: 24rpx;
+  box-sizing: border-box;
 }
 .list-wrap .room-name {
   color: #333;
   font-size: 28rpx;
 }
 .list-wrap .signed-tag {
-  color: aquamarine;
-  font-size: 26rpx;
+  color: #5b8577;
+  font-size: 22rpx;
+  margin-left: 60rpx;
 }

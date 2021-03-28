@@ -5,23 +5,35 @@ const _ = db.command;
 
 Page({
   data: {
-    active: 0,
+    active: "",
     homeworkList: [],
     signingList: [], // 正在签到中的
     signedList: [], // 已经过时的签到 包括已签到和未签到
     rooms: [],
+    roomsDetailInfo: [],
     occupation: 1
   },
   active: 0,
-  onLoad: function(options) {},
-  onShow: function() {
-    console.log(app.globalData.userInfo);
-    const { rooms = [], occupation } = app.globalData.userInfo;
-    if (rooms.length !== this.data.rooms) {
+  onLoad: function(options) {
+    // 获取作业数据
+    this.getStudentHomeworkList();
+  },
+  async onShow() {
+    const { data } = await db
+      .collection("users")
+      .doc(app.globalData.userInfo.openid)
+      .get();
+
+    wx.setStorage({
+      key: "userInfo",
+      data
+    });
+    const { rooms = [], occupation } = data;
+    if (rooms.length !== this.data.rooms.length) {
+      console.log(rooms.length, this.data.rooms.length);
       // 新添加了room
       this.setData({ rooms, occupation });
     }
-    this.getRoomsDetail(rooms);
   },
   // tabs切换
   onChange(e) {
@@ -29,7 +41,7 @@ Page({
     const { index } = e.detail;
     if (index === 0 && this.data.active !== 0) {
       // 获取群聊数据
-      this.getRoomsData();
+      this.getRoomsDetail();
     } else if (index === 1 && this.data.active !== 1) {
       // 获取作业数据
       this.getStudentHomeworkList();
@@ -45,50 +57,49 @@ Page({
   // 群聊相关
   // 群聊相关
   // 群聊相关
-  getRoomsData() {},
 
-  async getRoomsDetail(rooms) {
-    // const { result } = await wx.cloud.callFunction({
-    //   name: "rooms",
-    //   data: {
-    //     type: "getRoomsDetail",
-    //     rooms
-    //   }
-    // });
-    // console.log("getRoomsDetail", result);
-    // this.setData({
-    //   homeworkList: result.data
-    // });
+  async getRoomsDetail() {
+    const { result } = await wx.cloud.callFunction({
+      name: "room",
+      data: {
+        type: "getRoomsDetail",
+        rooms: this.data.rooms
+      }
+    });
+    console.log("getRoomsDetail", result);
+    this.setData(
+      {
+        roomsDetailInfo: result.data
+      },
+      () => {
+        this.getOwnerHeaderImg(result.data);
+      }
+    );
   },
-  async tapRoomItem(e) {
-    const { roomId } = e.currentTarget.dataset;
-    // const { result } = await wx.cloud.callFunction({
-    //   name: "rooms",
-    //   data: {
-    //     type: "getRoomsDetail",
-    //     rooms
-    //   }
-    // });
-    // console.log("getRoomsDetail", result);
-    // this.setData({
-    //   homeworkList: result.data
-    // });
-
-    const watcher = db
-      .collection("message")
-      .where({
-        room: roomId,
-        time: _.gt(new Date("2019-09-01 10:00"))
+  async getOwnerHeaderImg(list) {
+    const users = await Promise.all(
+      list.map(async item => {
+        return await db
+          .collection("users")
+          .doc(item.owner)
+          .get();
       })
-      .watch({
-        onChange: snapshot => {
-          console.log(`新事件`, snapshot);
-        },
-        onError: err => {
-          console.error(`监听错误`, err);
-        }
-      });
-    console.log("watcher=====", watcher);
+    );
+    this.data.roomsDetailInfo.forEach((item, index) => {
+      item.ownerHeaderImg = users[index].data.avatarUrl;
+    });
+    this.setData({ roomsDetailInfo: this.data.roomsDetailInfo }, () => {
+      console.log("this.data.roomsDetailInfo", this.data.roomsDetailInfo);
+    });
+  },
+
+  async tapRoomItem(e) {
+    const { roomInfo } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: "/pages/chatRoom/index?roomInfo=" + JSON.stringify(roomInfo)
+    });
+
+    console.log("roomId", roomInfo);
   },
 
   // 作业相关
@@ -102,7 +113,7 @@ Page({
         openid: app.globalData.userInfo.openid
       }
     });
-    console.log(333, result);
+    console.log("作业列表", result);
     this.setData({
       homeworkList: result.data
     });

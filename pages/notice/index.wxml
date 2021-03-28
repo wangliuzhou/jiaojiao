@@ -1,14 +1,17 @@
-<van-tabs bind:change="onChange">
+<van-tabs bind:change="onChange" title-active-color="#02C874" color="#02C874" active="{{1}}">
   <van-tab title="群聊">
     <view class="content-box">
-      <block wx:for="{{rooms}}" wx:key="*this">
+      <block wx:for="{{roomsDetailInfo}}" wx:key="*this">
         <view class="public-item">
-          <view class="public-item-title" bindtap="tapRoomItem" data-room-id="{{item}}">{{item}}</view>
+          <view class="public-item-title flex" bindtap="tapRoomItem" data-room-info="{{item}}">
+            <image class="owner-header-img" src="{{item.ownerHeaderImg}}" />
+            {{item.name}}的群聊
+          </view>
         </view>
       </block>
     </view>
   </van-tab>
-  <view wx:if="{{occupation===0}}">
+  <block wx:if="{{occupation===0}}">
     <van-tab title="作业">
       <view class="content-box">
         <block wx:for="{{homeworkList}}" wx:key="index">
@@ -26,13 +29,6 @@
         <view class="list-wrap">
           <view wx:if="{{signingList.length}}" class="title">进行中的签到</view>
           <block wx:for="{{signingList}}" wx:key="_id">
-            <!-- <view class="public-item" bindtap="showConfirm" data-item="{{item}}">
-              <view class="public-item-title">课堂名称：</view>
-              <view class="right-box">
-                <text class="text">{{item.name}}</text>
-                <text wx:if="{{item.status}}" class="signed-tag">已签到</text>
-              </view>
-            </view>-->
             <view class="signing-box" bindtap="showConfirm" data-item="{{item}}">
               <view class="room-name">
                 课堂名称：{{item.name}}
@@ -55,5 +51,5 @@
         </view>
       </view>
     </van-tab>
-  </view>
+  </block>
 </van-tabs>

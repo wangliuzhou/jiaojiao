@@ -10,8 +10,14 @@
   </view>
 
   <view>
-    <view>创建新课堂</view>
-    <input type="text" placeholder="请输入群名称" bindinput="onInputChange" value="{{classRoomName}}" />
-    <view class="create-class" bindtap="onCreateClassRoom">创建课堂</view>
+    <view class="public-title">创建新课堂</view>
+    <input
+      type="text"
+      placeholder="请输入群名称"
+      bindinput="onInputChange"
+      value="{{classRoomName}}"
+      style="margin:24rpx"
+    />
+    <view class="btn create-class" bindtap="onCreateClassRoom">创建课堂</view>
   </view>
 </view>

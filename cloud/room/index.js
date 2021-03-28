@@ -47,12 +47,12 @@ exports.main = async (event, context) => {
         }
       });
   } else if (type === "getRoomsDetail") {
-    // const { rooms } = event;
-    // return db
-    //   .collection("room")
-    //   .where({
-    //     owner: openid
-    //   })
-    //   .get();
+    const { rooms } = event;
+    return db
+      .collection("room")
+      .where({
+        _id: _.in(rooms)
+      })
+      .get();
   }
 };

@@ -1,21 +1,28 @@
 .class-item {
-  background: #ccc;
+  background: #e6e4e4;
   margin: 20rpx;
+  border-radius: 12rpx;
+  border: 1px solid #02c874;
+  padding: 24rpx;
   box-sizing: border-box;
 }
 .class-item .copy-btn {
   border: 1px solid #acc;
   width: 300rpx;
-  background: #730;
+  background: #02c874;
 }
 .content-box {
-  padding: 100rpx;
-  border: 10rpx;
+  padding: 120rpx;
+  border: 1px solid #02c874;
 }
-.content-box .join-btn {
+.content-box .btn {
   border: 1px solid #acc;
   width: 300rpx;
-  background: #730;
+  background: #dbf5ea;
+  margin-top: 60rpx;
   text-align: center;
-  margin-top: 20rpx;
+  line-height: 80rpx;
+}
+.content-box input {
+  width: 300rpx;
 }

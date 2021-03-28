@@ -7,8 +7,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 48rpx;
+  box-sizing: border-box;
   .favo {
-    color: rgb(255, 142, 108);
+    color: #aaa;
     font-size: 28rpx;
     display: flex;
     align-items: center;

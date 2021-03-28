@@ -1,6 +1,11 @@
+page {
+  padding: 24rpx;
+  box-sizing: border-box;
+  color: #02c874;
+}
 view {
   margin: 48rpx 0;
-  border: 1px solid #ccc;
+  border: 1px solid #02c874;
   padding: 24rpx;
   border-radius: 12rpx;
 }

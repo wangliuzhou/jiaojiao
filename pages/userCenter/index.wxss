@@ -1,6 +1,6 @@
 .user-info {
-  background: #666565;
-  height: 38vh;
+  background: #bafdb5;
+  height: 30vh;
   padding: 48rpx;
   box-sizing: border-box;
 }
@@ -20,7 +20,7 @@
   height: 100%;
 }
 .user-info .user-info-box .name {
-  color: #ffffff;
+  color: #3d3c3c;
   margin-left: 24rpx;
 }
 .user-header {

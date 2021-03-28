@@ -10,3 +10,10 @@
 .download-box image {
   width: 40rpx;
 }
+page {
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+.public-title {
+  margin-left: -24rpx;
+}

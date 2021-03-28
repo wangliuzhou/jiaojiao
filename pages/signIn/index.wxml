@@ -1,5 +1,5 @@
 <view class="list-wrap">
-  <view wx:if="{{signingList.length}}" class="title">进行中的签到</view>
+  <view wx:if="{{signingList.length}}" class="public-title">进行中的签到</view>
   <block wx:for="{{signingList}}" wx:key="_id">
     <view class="signing-box" bindtap="showConfirm" data-item="{{item}}">
       <view class="room-name">
@@ -11,11 +11,11 @@
 </view>
 
 <view class="list-wrap">
-  <view wx:if="{{signedList.length}}" class="title">已结束的签到</view>
+  <view wx:if="{{signedList.length}}" class="public-title">已结束的签到</view>
   <block wx:for="{{signedList}}" wx:key="_id">
     <view class="signed-box">
       <view class="room-name">
-        {{item.name}}
+        课堂名称：{{item.name}}
         <text wx:if="{{item.status}}" class="signed-tag">已签到</text>
       </view>
     </view>

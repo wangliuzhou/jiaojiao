@@ -7,9 +7,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 48rpx;
+  box-sizing: border-box;
 }
 .top .favo {
-  color: #ff8e6c;
+  color: #aaa;
   font-size: 28rpx;
   display: flex;
   align-items: center;

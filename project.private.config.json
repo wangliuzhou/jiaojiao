@@ -83,6 +83,18 @@
           "pathName": "pages/favorites/index",
           "query": "id=0",
           "scene": null
+        },
+        {
+          "name": "pages/chatRoom/index",
+          "pathName": "pages/chatRoom/index",
+          "query": "roomInfo={\"_id\":\"79550af2605b451e0bb7778111646261\",\"members\":[\"oV4Zd5ZK7P02L-89T7iRRWLfHzCQ\",\"oV4Zd5YbRqmNFZchHyNWMQYzxr0A\"],\"name\":\"高中\",\"occupation\":1,\"owner\":\"oV4Zd5ZK7P02L-89T7iRRWLfHzCQ\",\"ownerHeaderImg\":\"https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLRSpGlBNkCDjjCe3V3yQNkdtOAOvvdnZ9t7AK5fSElOfpM4MNDK3CjRyh4mY9PyUgk3ibR9QfPeEQ/132\"}",
+          "scene": null
+        },
+        {
+          "name": "pages/chatRoom/index",
+          "pathName": "pages/chatRoom/index",
+          "query": "roomInfo={\"_id\":\"79550af2605cace40be6735c46822ceb\",\"members\":[\"oV4Zd5ZK7P02L-89T7iRRWLfHzCQ\"],\"name\":\"幼儿园\",\"occupation\":1,\"owner\":\"oV4Zd5ZK7P02L-89T7iRRWLfHzCQ\",\"ownerHeaderImg\":\"cloud://cloud1-6g5tyhsr51195a0c.636c-cloud1-6g5tyhsr51195a0c-1305268929/1616688614078\"}",
+          "scene": null
         }
       ]
     }

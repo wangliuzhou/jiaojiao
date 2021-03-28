@@ -1,3 +1,14 @@
+page {
+  padding: 0;
+}
+.swiper {
+  height: 480rpx;
+  .banner {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .list-box {
   display: flex;
   align-items: center;
@@ -5,6 +16,7 @@
   flex-wrap: wrap;
   width: 100%;
   height: 190rpx;
+  margin-top: 48rpx;
 
   .item {
     position: relative;
@@ -32,7 +44,7 @@
     }
 
     .label {
-      margin-top: 33rpx;
+      margin-top: 24rpx;
       height: 37rpx;
       font-size: 26rpx;
       font-family: PingFangSC-Regular, PingFang SC;
@@ -40,10 +52,9 @@
       line-height: 37rpx;
       color: #666666;
     }
-
-    .icon {
-      width: 56rpx;
-      height: 56rpx;
-    }
   }
+}
+.iconfont {
+  font-size: 68rpx;
+  color: #02c874;
 }
