@@ -1,0 +1,30 @@
+<view class="wrap">
+  <!-- <view class="top">
+    <image class="left" src="./../../assets/image/left.jpg" bindtap="back" />
+    <view>{{roomInfo.name}}</view>
+    <view class="left"></view>
+  </view>-->
+
+  <view class="scroll-view-box">
+    <scroll-view
+      scroll-y="true"
+      bindscrolltoupper="upper"
+      bindscrolltolower="lower"
+      bindscroll="scroll"
+      scroll-into-view="{{toView}}"
+      scroll-top="{{scrollTop}}"
+    >
+      <block wx:for="{{list}}" wx:key="_id">
+        <view class="message-box">
+          <view class="flex1"></view>
+
+          <view class="message {{item.sender===userInfo._id?'self':'other'}}">{{item.content}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="input-box">
+    <input type="text" bindinput="onInput" cursor-spacing="220" value="{{value}}" />
+    <view class="send-btn" bindtap="sendMessage">发送</view>
+  </view>
+</view>

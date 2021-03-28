@@ -1,0 +1,76 @@
+page {
+  padding: 0;
+}
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.top {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64rpx;
+  border-bottom: 1px solid #eee;
+  padding: 12rpx;
+  background: #fff;
+  .left {
+    width: 30rpx;
+    height: 30rpx;
+  }
+}
+.scroll-view-box {
+  background: rgb(255, 246, 246);
+  flex: 1;
+  padding: 0 0 160rpx 0;
+  box-sizing: border-box;
+}
+.input-box {
+  position: fixed;
+  bottom: 0rpx;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24rpx 0 48rpx 0;
+  background: #fff;
+
+  input {
+    flex: 1;
+  }
+  .send-btn {
+    color: rgb(150, 150, 150);
+    border: 1px solid #eee;
+    padding: 16rpx 36rpx;
+    border-radius: 12rpx;
+    margin-left: 24rpx;
+    box-sizing: border-box;
+  }
+}
+.message-box {
+  display: flex;
+  .flex1 {
+    flex: 1;
+  }
+}
+.message {
+  background: #02c874;
+  padding: 24rpx 60rpx;
+  display: inline-block;
+  position: relative;
+  margin: 24rpx 0;
+}
+.self {
+  right: 24rpx;
+  margin-left: 200rpx;
+  border-top-left-radius: 48rpx;
+  border-top-right-radius: 48rpx;
+  border-bottom-left-radius: 48rpx;
+}
