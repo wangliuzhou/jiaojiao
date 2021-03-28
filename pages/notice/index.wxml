@@ -7,6 +7,7 @@
             <image class="owner-header-img" src="{{item.ownerHeaderImg}}" />
             {{item.name}}的群聊
           </view>
+          <view class="add-message-count-tip" wx:if="{{item.addMessageCount>0}}"></view>
         </view>
       </block>
     </view>

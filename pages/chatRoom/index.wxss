@@ -2,32 +2,13 @@ page {
   padding: 0;
 }
 .wrap {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
   box-sizing: border-box;
 }
-.top {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64rpx;
-  border-bottom: 1px solid #eee;
-  padding: 12rpx;
-  background: #fff;
-}
-.top .left {
-  width: 30rpx;
-  height: 30rpx;
-}
-.scroll-view-box {
+.scroll-view {
   background: #fff6f6;
-  flex: 1;
-  padding: 0 0 160rpx 0;
+  height: 100vh;
+  padding: 0 0 200rpx 0;
   box-sizing: border-box;
 }
 .input-box {
@@ -52,23 +33,46 @@ page {
   margin-left: 24rpx;
   box-sizing: border-box;
 }
+.flex {
+  flex: 1;
+}
 .message-box {
   display: flex;
+  align-items: flex-end;
 }
-.message-box .flex1 {
-  flex: 1;
+.message-box .user-info {
+  width: 88rpx;
+  display: flex;
+  flex-direction: column;
+}
+.user-info image {
+  width: 64rpx;
+  height: 64rpx;
+  margin: 12rpx 12rpx 0 12rpx;
+  display: block;
+}
+.user-info .nick-name {
+  font-size: 24rpx;
+  white-space: nowrap;
+  margin-left: 12rpx;
 }
 .message {
   background: #02c874;
-  padding: 24rpx 60rpx;
+  padding: 24rpx 48rpx;
   display: inline-block;
   position: relative;
-  margin: 24rpx 0;
+  margin-top: 48rpx;
+  font-size: 26rpx;
 }
 .self {
-  right: 24rpx;
   margin-left: 200rpx;
   border-top-left-radius: 48rpx;
   border-top-right-radius: 48rpx;
   border-bottom-left-radius: 48rpx;
+}
+.other {
+  margin-right: 200rpx;
+  border-top-left-radius: 48rpx;
+  border-top-right-radius: 48rpx;
+  border-bottom-right-radius: 48rpx;
 }

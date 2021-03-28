@@ -6,7 +6,7 @@
 <view class="public-title">请先选择您的身份：</view>
 
 <radio-group bindchange="radioChange" style="margin:24rpx">
-  <label class wx:for="{{radios}}" wx:key="value">
+  <label wx:for="{{radios}}" wx:key="value">
     <radio value="{{item.value}}" />
     {{item.name}}
   </label>

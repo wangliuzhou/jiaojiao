@@ -4,21 +4,69 @@ const db = wx.cloud.database();
 const _ = db.command;
 
 Page({
+  timer: null,
   data: {
     roomInfo: {},
     value: "",
     list: [],
-    userInfo: {}
+    userInfo: {},
+    toView: "" // scroll-into-view的id
   },
-  //options(Object)
+
   async onLoad(options) {
+    let messageObj;
     const roomInfo = JSON.parse(options.roomInfo);
-    console.log("roomInfo", roomInfo);
-    this.setData({ roomInfo, userInfo: app.globalData.userInfo });
+    try {
+      messageObj = wx.getStorageSync("message") || {};
+    } catch (e) {
+      console.log(e);
+    }
+    console.log("messageObj", messageObj);
+    this.setData({
+      roomInfo,
+      list: messageObj[roomInfo._id] || [],
+      userInfo: app.globalData.userInfo
+    });
     wx.setNavigationBarTitle({ title: roomInfo.name });
-    this.getMessage(roomInfo);
+  },
+  onShow() {
+    if (!this.timer) {
+      this.init(this.data.roomInfo);
+    }
+  },
+  onHide() {
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
+  },
+  onUnload() {
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
+    this.setMessageStorage();
+  },
+
+  setMessageStorage() {
+    const messageStorage = wx.getStorageSync("message") || {};
+    messageStorage[this.data.roomInfo._id] = this.data.list;
+    wx.setStorage({
+      key: "message",
+      data: messageStorage
+    });
+  },
+
+  async init(roomInfo) {
+    await this.getMessage(roomInfo);
+    const len = this.data.list.length - 1;
+    this.setData({
+      toView: "id" + this.data.list[len]._id
+    });
+    this.timer = setInterval(() => {
+      this.getMessage(roomInfo);
+    }, 5000);
   },
   onInput(e) {
+    console.log(e.detail.value);
     this.setData({ value: e.detail.value });
   },
   async getMessage(roomInfo) {
@@ -27,20 +75,25 @@ Page({
       name: "message",
       data: {
         type: "getMessage",
-        _id: roomInfo._id
+        _id: roomInfo._id,
+        skip: this.data.list.length
       }
     });
+    console.log("获取getMessage", result.data);
+
     this.setData({
-      list: result.data
-    });
-    console.log("获取getMessage", result);
-  },
-  back() {
-    wx.navigateBack({
-      delta: 1
+      list: this.data.list.concat(result.data)
     });
   },
   async sendMessage() {
+    if (!this.data.value.trim()) {
+      wx.showToast({
+        title: "请输入内容",
+        icon: "none"
+      });
+      return;
+    }
+
     const timeStamp = +new Date();
     const { result } = await wx.cloud.callFunction({
       name: "message",
@@ -50,12 +103,16 @@ Page({
         sender: app.globalData.userInfo.openid,
         content: this.data.value,
         time: timeStamp,
-        withdrawn: false
+        withdrawn: false,
+        avatarUrl: app.globalData.userInfo.avatarUrl,
+        nickName: app.globalData.userInfo.nickName,
+        skip: this.data.list.length
       }
     });
     if (result._id) {
       console.log("发送成功");
-
+      clearInterval(this.timer);
+      this.init(this.data.roomInfo);
       this.setData({
         value: ""
       });
@@ -65,5 +122,18 @@ Page({
         title: "发送失败"
       });
     }
+    // const obj = {
+    //   content:this.data.value,
+    //   sender:2,
+    //   nickName:'王留周',
+    //   avatarUrl:'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4277010421,1238629898&fm=11&gp=0.jpg'
+    // }
+    // this.data.list.push(obj)
+    // this.setData({
+    //   list:this.data.list,
+    //   value:''
+    // },()=>{
+    //   console.log(5555,this.data.list);
+    // })
   }
 });

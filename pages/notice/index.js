@@ -34,6 +34,9 @@ Page({
       // 新添加了room
       this.setData({ rooms, occupation });
     }
+    if (this.data.active === 0) {
+      this.getChatCount(this.data.roomsDetailInfo);
+    }
   },
   // tabs切换
   onChange(e) {
@@ -58,6 +61,27 @@ Page({
   // 群聊相关
   // 群聊相关
 
+  async getChatCount(list) {
+    const counts = await Promise.all(
+      list.map(async item => {
+        return wx.cloud.callFunction({
+          name: "message",
+          data: {
+            type: "getMessageCount",
+            _id: item._id
+          }
+        });
+      })
+    );
+    const messageObj = wx.getStorageSync("message") || {};
+    this.data.roomsDetailInfo.forEach((item, index) => {
+      const storageRoomMessage = messageObj[item._id] || [];
+      const storageRoomMessageCount = storageRoomMessage.length;
+      item.addMessageCount =
+        counts[index].result.total - storageRoomMessageCount;
+    });
+    this.setData({ roomsDetailInfo: this.data.roomsDetailInfo });
+  },
   async getRoomsDetail() {
     const { result } = await wx.cloud.callFunction({
       name: "room",
@@ -73,9 +97,11 @@ Page({
       },
       () => {
         this.getOwnerHeaderImg(result.data);
+        this.getChatCount(result.data);
       }
     );
   },
+  // 获取设置群主头像
   async getOwnerHeaderImg(list) {
     const users = await Promise.all(
       list.map(async item => {
@@ -88,9 +114,7 @@ Page({
     this.data.roomsDetailInfo.forEach((item, index) => {
       item.ownerHeaderImg = users[index].data.avatarUrl;
     });
-    this.setData({ roomsDetailInfo: this.data.roomsDetailInfo }, () => {
-      console.log("this.data.roomsDetailInfo", this.data.roomsDetailInfo);
-    });
+    this.setData({ roomsDetailInfo: this.data.roomsDetailInfo });
   },
 
   async tapRoomItem(e) {

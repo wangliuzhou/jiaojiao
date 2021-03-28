@@ -32,3 +32,9 @@
   font-size: 22rpx;
   margin-left: 60rpx;
 }
+.add-message-count-tip {
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background: #02c874;
+}

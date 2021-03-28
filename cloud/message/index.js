@@ -7,20 +7,27 @@ const db = cloud.database();
 const _ = db.command;
 // 云函数入口函数
 exports.main = async (event, context) => {
-  const { type, _id } = event;
+  const { type, _id, skip } = event;
   if (type === "sendMessage") {
     delete event.type;
     delete event.userInfo;
     return db.collection("message").add({
       data: event
     });
-  }
-  if (type === "getMessage") {
+  } else if (type === "getMessage") {
     return db
       .collection("message")
       .where({
         room: _id
       })
+      .skip(skip)
       .get();
+  } else if (type === "getMessageCount") {
+    return db
+      .collection("message")
+      .where({
+        room: _id
+      })
+      .count();
   }
 };
