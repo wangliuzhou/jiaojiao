@@ -7,6 +7,7 @@ export const getOpenId = async () => {
     // 要调用的云函数名称
     name: "getOpenId"
   });
+
   return result.openid;
 };
 

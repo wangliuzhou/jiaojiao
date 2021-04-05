@@ -13,5 +13,18 @@
 </radio-group>
 
 <view wx:if="{{value===0 || value===1}}">
-  <button type="primary" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="btn">授权登录</button>
+  <button
+    class="btn"
+    type="primary"
+    wx:if="{{canIUseGetUserProfile}}"
+    bindtap="getUserProfile"
+  >获取头像昵称</button>
+
+  <button
+    wx:else
+    class="btn"
+    type="primary"
+    open-type="getUserInfo"
+    bindgetuserinfo="onGetUserInfo"
+  >授权登录</button>
 </view>
