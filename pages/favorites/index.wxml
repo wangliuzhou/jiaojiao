@@ -1,6 +1,14 @@
-<block wx:for="{{list}}" wx:key="url">
-  <view class="top">
-    <view>{{item.title}}</view>
-  </view>
-  <video class="video" src="{{item.url}}" id="myVideo"></video>
-</block>
+<view wx:if="{{list.length}}">
+  <block wx:for="{{list}}" wx:key="url">
+    <view class="top">
+      <view>{{item.title}}</view>
+    </view>
+    <video class="video" src="{{item.url}}" id="myVideo"></video>
+  </block>
+</view>
+<view wx:if="{{!loading&&!list.length}}">
+  <image
+    class="no-data"
+    src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fb209937dc2276a7cb5a47fb831879af25c52fa1b25567-NGX9jR_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620213207&t=deb3dd7091c72e0019f8248a13e28314"
+  />
+</view>

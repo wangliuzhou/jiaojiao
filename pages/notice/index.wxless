@@ -39,3 +39,8 @@
   border-radius: 50%;
   background: #02c874;
 }
+.no-data {
+  margin-top: 40vh;
+  text-align: center;
+  color: #ccc;
+}

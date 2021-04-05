@@ -58,9 +58,11 @@ Page({
   async init(roomInfo) {
     await this.getMessage(roomInfo);
     const len = this.data.list.length - 1;
-    this.setData({
-      toView: "id" + this.data.list[len]._id
-    });
+    if (len > 0) {
+      this.setData({
+        toView: "id" + this.data.list[len]._id
+      });
+    }
     this.timer = setInterval(() => {
       this.getMessage(roomInfo);
     }, 5000);

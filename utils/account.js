@@ -36,6 +36,10 @@ export const checkResult = async openid => {
 
 //自动登录
 export const autoLogin = async () => {
+  wx.showLoading({
+    title: "加载中"
+  });
   const openid = await getOpenId();
   await checkResult(openid);
+  wx.hideLoading();
 };

@@ -4,9 +4,13 @@ let app = getApp();
 
 Page({
   data: {
-    list: []
+    list: [],
+    loading: true
   },
   async onLoad(options) {
+    wx.showLoading({
+      title: "加载中"
+    });
     const { data } = await db
       .collection("users")
       .doc(app.globalData.userInfo.openid)
@@ -15,8 +19,10 @@ Page({
     const newList = videoList.filter(obj => {
       return likeVideo.includes(obj.url);
     });
+    wx.hideLoading();
     this.setData({
-      list: newList
+      list: newList,
+      loading: false
     });
   }
 });

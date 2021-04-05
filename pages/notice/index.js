@@ -5,7 +5,7 @@ const _ = db.command;
 
 Page({
   data: {
-    active: "",
+    active: 0,
     homeworkList: [],
     signingList: [], // 正在签到中的
     signedList: [], // 已经过时的签到 包括已签到和未签到
@@ -13,10 +13,11 @@ Page({
     roomsDetailInfo: [],
     occupation: 1
   },
-  active: 0,
   onLoad: function(options) {
-    // 获取作业数据
-    this.getStudentHomeworkList();
+    // 获取学生作业数据
+    if (app.globalData.userInfo.occupation === 0) {
+      this.getStudentHomeworkList();
+    }
   },
   async onShow() {
     const { data } = await db
@@ -28,13 +29,18 @@ Page({
       key: "userInfo",
       data
     });
+    console.log(8899, data);
+
     const { rooms = [], occupation } = data;
     if (rooms.length !== this.data.rooms.length) {
-      console.log(rooms.length, this.data.rooms.length);
       // 新添加了room
       this.setData({ rooms, occupation });
     }
-    if (this.data.active === 0) {
+    if (occupation === 1) {
+      // 获取群聊数据
+      this.getRoomsDetail();
+    }
+    if (this.data.active === 1 || occupation === 1) {
       this.getChatCount(this.data.roomsDetailInfo);
     }
   },
@@ -43,11 +49,11 @@ Page({
     console.log(e);
     const { index } = e.detail;
     if (index === 0 && this.data.active !== 0) {
-      // 获取群聊数据
-      this.getRoomsDetail();
-    } else if (index === 1 && this.data.active !== 1) {
       // 获取作业数据
       this.getStudentHomeworkList();
+    } else if (index === 1 && this.data.active !== 1) {
+      // 获取群聊数据
+      this.getRoomsDetail();
     } else if (index === 2 && this.data.active !== 2) {
       // 获取签到数据
       this.getAllSignList();

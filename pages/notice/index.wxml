@@ -1,7 +1,74 @@
-<van-tabs bind:change="onChange" title-active-color="#02C874" color="#02C874" active="{{1}}">
-  <van-tab title="群聊">
-    <view class="content-box">
-      <block wx:for="{{roomsDetailInfo}}" wx:key="*this">
+<block wx:if="{{occupation===0}}">
+  <van-tabs bind:change="onChange" title-active-color="#02C874" color="#02C874" active="{{active}}">
+    <van-tab title="作业">
+      <view class="content-box">
+        <block wx:if="{{homeworkList.length}}">
+          <block wx:for="{{homeworkList}}" wx:key="index">
+            <view class="public-item">
+              <view class="public-item-title">{{item.name}}的作业</view>
+              <view class="right-box">
+                <button class="btn2" bindtap="checkHomeworkDetail" data-item="{{item}}">查看作业详情</button>
+              </view>
+            </view>
+          </block>
+        </block>
+        <view wx:else class="no-data">暂无数据</view>
+      </view>
+    </van-tab>
+
+    <van-tab title="群聊">
+      <view class="content-box">
+        <block wx:if="{{roomsDetailInfo.length}}">
+          <block wx:for="{{roomsDetailInfo}}" wx:key="index">
+            <view class="public-item">
+              <view class="public-item-title flex" bindtap="tapRoomItem" data-room-info="{{item}}">
+                <image class="owner-header-img" src="{{item.ownerHeaderImg}}" />
+                {{item.name}}的群聊
+              </view>
+              <view class="add-message-count-tip" wx:if="{{item.addMessageCount>0}}"></view>
+            </view>
+          </block>
+        </block>
+        <view wx:else class="no-data">暂无数据</view>
+      </view>
+    </van-tab>
+
+    <van-tab title="签到">
+      <view class="content-box">
+        <block wx:if="{{signingList.length+signedList.length}}">
+          <view class="list-wrap">
+            <view wx:if="{{signingList.length}}" class="title">进行中的签到</view>
+            <block wx:for="{{signingList}}" wx:key="_id">
+              <view class="signing-box" bindtap="showConfirm" data-item="{{item}}">
+                <view class="room-name">
+                  课堂名称：{{item.name}}
+                  <text wx:if="{{item.status}}" class="signed-tag">已签到</text>
+                </view>
+              </view>
+            </block>
+          </view>
+
+          <view class="list-wrap">
+            <view wx:if="{{signedList.length}}" class="title">已结束的签到</view>
+            <block wx:for="{{signedList}}" wx:key="_id">
+              <view class="signed-box">
+                <view class="room-name">
+                  {{item.name}}
+                  <text wx:if="{{item.status}}" class="signed-tag">已签到</text>
+                </view>
+              </view>
+            </block>
+          </view>
+        </block>
+        <view wx:else class="no-data">暂无数据</view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</block>
+<view wx:else>
+  <view class="content-box">
+    <block wx:if="{{roomsDetailInfo.length}}">
+      <block wx:for="{{roomsDetailInfo}}" wx:key="index">
         <view class="public-item">
           <view class="public-item-title flex" bindtap="tapRoomItem" data-room-info="{{item}}">
             <image class="owner-header-img" src="{{item.ownerHeaderImg}}" />
@@ -10,47 +77,7 @@
           <view class="add-message-count-tip" wx:if="{{item.addMessageCount>0}}"></view>
         </view>
       </block>
-    </view>
-  </van-tab>
-  <block wx:if="{{occupation===0}}">
-    <van-tab title="作业">
-      <view class="content-box">
-        <block wx:for="{{homeworkList}}" wx:key="index">
-          <view class="public-item">
-            <view class="public-item-title">{{item.name}}的作业</view>
-            <view class="right-box">
-              <button class="btn2" bindtap="checkHomeworkDetail" data-item="{{item}}">查看作业详情</button>
-            </view>
-          </view>
-        </block>
-      </view>
-    </van-tab>
-    <van-tab title="签到">
-      <view class="content-box">
-        <view class="list-wrap">
-          <view wx:if="{{signingList.length}}" class="title">进行中的签到</view>
-          <block wx:for="{{signingList}}" wx:key="_id">
-            <view class="signing-box" bindtap="showConfirm" data-item="{{item}}">
-              <view class="room-name">
-                课堂名称：{{item.name}}
-                <text wx:if="{{item.status}}" class="signed-tag">已签到</text>
-              </view>
-            </view>
-          </block>
-        </view>
-
-        <view class="list-wrap">
-          <view wx:if="{{signedList.length}}" class="title">已结束的签到</view>
-          <block wx:for="{{signedList}}" wx:key="_id">
-            <view class="signed-box">
-              <view class="room-name">
-                {{item.name}}
-                <text wx:if="{{item.status}}" class="signed-tag">已签到</text>
-              </view>
-            </view>
-          </block>
-        </view>
-      </view>
-    </van-tab>
-  </block>
-</van-tabs>
+    </block>
+    <view wx:else class="no-data">暂无数据</view>
+  </view>
+</view>

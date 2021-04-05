@@ -1,12 +1,14 @@
 export default [
   {
     title: "好看的视频1",
-    url: "https://v.qq.com/x/page/a0509sgu1b24.html",
+    url:
+      "https://videocdn.taobao.com/oss/ali-video/d6bc4ae3eb3c866bee9903d47d1210c6/video.mp4",
     favorites: false
   },
   {
     title: "好看的视频2",
-    url: "https://v.qq.com/x/page/a0509sg2ub24.html",
+    url:
+      "https://kvideo01.youju.sohu.com/7f40ba50-c8a8-487a-b1d0-8017d2081f7c2_0_0.mp4",
     favorites: false
   },
   {
