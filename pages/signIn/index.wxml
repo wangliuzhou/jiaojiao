@@ -1,23 +1,31 @@
-<view class="list-wrap">
-  <view wx:if="{{signingList.length}}" class="public-title">进行中的签到</view>
-  <block wx:for="{{signingList}}" wx:key="_id">
-    <view class="signing-box" bindtap="showConfirm" data-item="{{item}}">
-      <view class="room-name">
-        课堂名称：{{item.name}}
-        <text wx:if="{{item.status}}" class="signed-tag">已签到</text>
+<view wx:if="{{signingList.length+signedList.length}}">
+  <view class="list-wrap">
+    <view wx:if="{{signingList.length}}" class="public-title">进行中的签到</view>
+    <block wx:for="{{signingList}}" wx:key="_id">
+      <view class="signing-box" bindtap="showConfirm" data-item="{{item}}">
+        <view class="room-name">
+          课堂名称：{{item.name}}
+          <text wx:if="{{item.status}}" class="signed-tag">已签到</text>
+        </view>
       </view>
-    </view>
-  </block>
-</view>
+    </block>
+  </view>
 
-<view class="list-wrap">
-  <view wx:if="{{signedList.length}}" class="public-title">已结束的签到</view>
-  <block wx:for="{{signedList}}" wx:key="_id">
-    <view class="signed-box">
-      <view class="room-name">
-        课堂名称：{{item.name}}
-        <text wx:if="{{item.status}}" class="signed-tag">已签到</text>
+  <view class="list-wrap">
+    <view wx:if="{{signedList.length}}" class="public-title">已结束的签到</view>
+    <block wx:for="{{signedList}}" wx:key="_id">
+      <view class="signed-box">
+        <view class="room-name">
+          课堂名称：{{item.name}}
+          <text wx:if="{{item.status}}" class="signed-tag">已签到</text>
+        </view>
       </view>
-    </view>
-  </block>
+    </block>
+  </view>
+</view>
+<view wx:else>
+  <image
+    class="no-data"
+    src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fb209937dc2276a7cb5a47fb831879af25c52fa1b25567-NGX9jR_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620213207&t=deb3dd7091c72e0019f8248a13e28314"
+  />
 </view>

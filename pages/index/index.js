@@ -1,4 +1,3 @@
-const computedBehavior = require("miniprogram-computed");
 const loginBehavior = require("../../behaviors/login");
 import { getOpenId } from "../../utils/account";
 
@@ -6,7 +5,7 @@ const db = wx.cloud.database();
 let app = getApp();
 
 Component({
-  behaviors: [computedBehavior, loginBehavior],
+  behaviors: [loginBehavior],
   data: {
     value: "", // 职业0学生   1老师
     radios: [
@@ -15,8 +14,6 @@ Component({
     ],
     canIUseGetUserProfile: false
   },
-  computed: {},
-  pageLifetimes: {},
   methods: {
     onLoad() {
       if (wx.getUserProfile) {

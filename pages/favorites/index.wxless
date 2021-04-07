@@ -21,7 +21,3 @@
     height: 48rpx;
   }
 }
-.no-data {
-  width: 100vw;
-  height: 100vh;
-}

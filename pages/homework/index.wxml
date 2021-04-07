@@ -1,5 +1,5 @@
-<view class="list-wrap">
-  <view wx:if="{{homeworkList.length}}" class="public-title">我的作业列表</view>
+<view class="list-wrap" wx:if="{{homeworkList.length}}">
+  <view class="public-title">我的作业列表</view>
   <block wx:for="{{homeworkList}}" wx:key="_id">
     <view class="public-item">
       <view class="public-item-title">{{item.name}}的作业</view>
@@ -8,4 +8,10 @@
       </view>
     </view>
   </block>
+</view>
+<view wx:else>
+  <image
+    class="no-data"
+    src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fb209937dc2276a7cb5a47fb831879af25c52fa1b25567-NGX9jR_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620213207&t=deb3dd7091c72e0019f8248a13e28314"
+  />
 </view>

@@ -1,12 +1,11 @@
 @import "./assets/font/iconfont.wxss";
+
 page {
   font-size: 34rpx;
   color: #333;
-  background-image: linear-gradient(
-    to right bottom,
-    rgb(241, 252, 240),
-    rgba(243, 248, 255, 1)
-  );
+  background-image: linear-gradient(to right bottom,
+      rgb(241, 252, 240),
+      rgba(243, 248, 255, 1));
 }
 
 input {
@@ -14,6 +13,7 @@ input {
   padding: 16rpx 24rpx;
   border-radius: 12rpx;
 }
+
 .btn {
   border: 1px solid #02c874;
   width: 300rpx;
@@ -21,6 +21,7 @@ input {
   font-size: 32rpx;
   text-align: center;
 }
+
 .btn2 {
   border: 1px solid #02c874;
   font-size: 24rpx;
@@ -45,6 +46,7 @@ input {
   color: #333333;
   line-height: 42rpx;
 }
+
 .public-item .right-box {
   display: flex;
   align-items: center;
@@ -52,6 +54,7 @@ input {
   height: 37rpx;
   line-height: 37rpx;
 }
+
 .public-item .right-box .text {
   font-size: 26rpx;
   font-family: PingFangSC-Regular, PingFang SC;
@@ -59,9 +62,15 @@ input {
   color: #999999;
   margin-right: 10rpx;
 }
+
 .public-title {
   color: #02c874;
   margin-top: 36rpx;
   padding-left: 24rpx;
   font-size: 36rpx;
+}
+
+.no-data {
+  width: 100vw;
+  height: 100vh;
 }
